@@ -18,6 +18,11 @@ public class Participant {
         this.name = name;
     }
 
+    public Participant(String name, Layout layout) {
+        this.name = name;
+        this.layout = layout;
+    }
+
     @ManyToOne
     private Layout layout;
 
