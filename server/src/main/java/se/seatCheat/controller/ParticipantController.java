@@ -19,14 +19,15 @@ public class ParticipantController {
     @CrossOrigin(origins = "http://localhost:3000")
     public List<Participant> allParticipants(){
         return participantRepository.findAll();
+
     }
 
     @PostMapping("/")
     @CrossOrigin(origins = "http://localhost:3000")
-    public void saveNewParticipant (@RequestParam String name){
-        participantRepository.save(new Participant(name));
+    public Participant saveNewParticipant (@RequestParam String name){
+        return participantRepository.save(new Participant(name));
 
-        participantRepository.findAll().forEach(System.out::println);
+
 
     }
 

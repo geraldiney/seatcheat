@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 
 class App extends Component {
@@ -21,7 +20,10 @@ class App extends Component {
 
     fetch("http://localhost:8080/")
       .then(response => response.json())
-      .then(data => this.setState({ participants: data, isLoading: false }));
+      .then(data => {
+        this.setState({ participants: data, isLoading: false });
+        console.log(data);
+      });
   }
 
   textHandler(event) {
@@ -34,15 +36,16 @@ class App extends Component {
     fetch("http://localhost:8080/", {
       method: "POST",
       body: formData
-    });
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        this.setState(prevState => ({
+          participants: [...prevState.participants, data]
+        }));
+      });
 
     event.preventDefault();
-    this.setState(prevState => ({
-      participants: [
-        ...prevState.participants,
-        { name: this.state.newParticipantName }
-      ]
-    }));
   }
 
   render() {
@@ -52,11 +55,7 @@ class App extends Component {
     }
     return (
       <div className="App">
-        <h2>Participant List </h2>
-        {participants.map(participant => (
-          <div key={participant.id}>{participant.name}</div>
-        ))}
-        <form>
+       <form>
           <input
             type="textarea"
             placeholder="Enter participant"
@@ -65,6 +64,13 @@ class App extends Component {
           />
           <button onClick={this.clickHandler}>Add Participant!</button>
         </form>
+        <h2>Participant List </h2>
+        {participants.map(participant => (
+          <div key={participant.id}>
+            Name: {participant.name} Id: {participant.id}
+          </div>
+        ))}
+       
       </div>
     );
   }

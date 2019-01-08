@@ -18,6 +18,10 @@ public class Layout {
         this.numberOfParticipantsPerSeatingUnit = numberOfParticipantsPerSeatingUnit;
     }
 
+    public Long getId() {
+        return id;
+    }
+
     public int getNumberOfParticipants() {
         return numberOfParticipants;
     }
