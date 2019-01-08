@@ -34,18 +34,15 @@ class App extends Component {
     fetch("http://localhost:8080/", {
       method: "POST",
       body: formData
-    })
-      .then(
-        this.setState(prevState => ({
-          participants: [
-            ...prevState.participants,
-            this.state.newParticipantName
-          ]
-        }))
-      )
-      .then(console.log(this.state.participants));
+    });
 
     event.preventDefault();
+    this.setState(prevState => ({
+      participants: [
+        ...prevState.participants,
+        { name: this.state.newParticipantName }
+      ]
+    }));
   }
 
   render() {
@@ -74,7 +71,3 @@ class App extends Component {
 }
 
 export default App;
-
-// (this.setState(prevState => ({
-//   participants: [...prevState.participants, this.state.newParticipantName]
-// })) );

@@ -24,8 +24,10 @@ public class ParticipantController {
     @PostMapping("/")
     @CrossOrigin(origins = "http://localhost:3000")
     public void saveNewParticipant (@RequestParam String name){
-      //  participantRepository.save(new Participant(name));
-        System.out.println("Hej från Postmapping " + name);
+        participantRepository.save(new Participant(name));
+
+        participantRepository.findAll().forEach(System.out::println);
+
     }
 
 }
