@@ -1,8 +1,7 @@
 package se.seatCheat.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Layout {
@@ -17,6 +16,9 @@ public class Layout {
         this.numberOfParticipants = numberOfParticipants;
         this.numberOfParticipantsPerSeatingUnit = numberOfParticipantsPerSeatingUnit;
     }
+
+    @OneToMany(mappedBy = "layout", fetch = FetchType.EAGER)
+    private Set<Participant> participants;
 
     public Long getId() {
         return id;

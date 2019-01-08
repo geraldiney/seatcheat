@@ -1,8 +1,6 @@
 package se.seatCheat.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Participant {
@@ -19,6 +17,9 @@ public class Participant {
     public Participant(String name) {
         this.name = name;
     }
+
+    @ManyToOne
+    private Layout layout;
 
     public String getName() {
         return name;
