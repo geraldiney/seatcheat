@@ -1,19 +1,22 @@
 import React, { Component } from "react";
 import AddParticipants from "./AddParticipants";
 import ParticipantList from "./ParticipantList";
+import SeatingRender from "../seatingRender/SeatingRender";
 
 class ParticipantContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
       participants: [],
-      isLoading: false
+      isLoading: false,
+      renderSeats: false
     };
     this.addParticipant = this.addParticipant.bind(this);
+    this.renderSeat = this.renderSeat.bind(this);
   }
 
-  componentDidMount(){
-      this.fetchParticipant();
+  componentDidMount() {
+    this.fetchParticipant();
 
   }
   fetchParticipant() {
@@ -25,8 +28,8 @@ class ParticipantContainer extends Component {
       });
   }
 
-  addParticipant(formData){
-    
+  addParticipant(formData) {
+
     fetch("http://localhost:8080/", {
       method: "POST",
       body: formData
@@ -38,14 +41,36 @@ class ParticipantContainer extends Component {
           participants: [...prevState.participants, data]
         }));
       });
-    
+
   }
 
+
+  renderSeat() {
+    this.setState({
+      renderSeats: !this.state.renderSeats
+    })
+  }
+
+
+
+
   render() {
+    let seats = null;
+
+    if (this.state.renderSeats) {
+        seats = (
+          <SeatingRender participants={this.state.participants} />
+        )
+      }
+    
+
     return (
       <div>
-        <AddParticipants participants={this.state.participants} addParticipant={this.addParticipant}/>
-        <ParticipantList participants={this.state.participants}/>
+        <AddParticipants participants={this.state.participants} addParticipant={this.addParticipant} />
+        <ParticipantList participants={this.state.participants} />
+        {/* <SeatingRender participants={this.state.participants}/> */}
+        {seats}
+        <button className="btn" onClick={this.renderSeat}>Render</button>
       </div>
     );
   }
