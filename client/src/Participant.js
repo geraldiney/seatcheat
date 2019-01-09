@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import "./css/participant.css"
+import "./css/participant.css";
+import TableRenderTest from "./renderTest/TableRenderTest";
 
 class Participant extends Component {
 
@@ -73,7 +74,7 @@ constructor(props) {
           </div>
         ))}
         </ul>
-       
+        {/* <TableRenderTest name="kalle"></TableRenderTest> */}
       </div>
     );
         }
