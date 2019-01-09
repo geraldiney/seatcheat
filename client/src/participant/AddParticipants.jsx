@@ -26,7 +26,7 @@ class AddParticipants extends Component {
   render() {
     return (
       <div className="Participants">
-        <h1>Lägg till deltagare!</h1>
+        <h5 className="card-title">Lägg till deltagare!</h5>
         <form>
           <input
             type="textarea"

@@ -65,10 +65,9 @@ class ParticipantContainer extends Component {
     
 
     return (
-      <div>
+      <div className="card">
         <AddParticipants participants={this.state.participants} addParticipant={this.addParticipant} />
         <ParticipantList participants={this.state.participants} />
-        {/* <SeatingRender participants={this.state.participants}/> */}
         {seats}
         <button className="btn" onClick={this.renderSeat}>Render</button>
       </div>

@@ -1,0 +1,18 @@
+.cinema{
+  
+width: 70px;
+height: 70px;
+background-color: blueviolet;
+
+}
+
+.layout{
+    display: flex;
+    align-items: center;
+    
+}
+
+input{
+margin: 1%;
+    
+}

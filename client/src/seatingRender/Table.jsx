@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Chair from "./Chair";
 import "../css/table.css";
 import ChairContainer from './ChairContainer';
 
