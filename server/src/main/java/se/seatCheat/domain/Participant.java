@@ -12,7 +12,7 @@ public class Participant {
     private String name;
 
     @ManyToMany(mappedBy = "participants", fetch = FetchType.EAGER)
-    Set<Grouping> groupings;
+    private Set<Grouping> groupings;
 
     public Participant() {
     }
@@ -24,6 +24,12 @@ public class Participant {
         this.name=name;
         this.groupings.add(grouping);
     }
+
+    public Participant (String name, Set<Grouping> set){
+        this.name=name;
+        this.groupings=set;
+    }
+
 
     public String getName() {
         return name;

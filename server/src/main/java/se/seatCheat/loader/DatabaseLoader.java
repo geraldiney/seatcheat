@@ -9,7 +9,9 @@ import se.seatCheat.repository.LayoutRepository;
 import se.seatCheat.repository.ParticipantRepository;
 
 import javax.servlet.http.Part;
+import java.util.HashSet;
 import java.util.Optional;
+import java.util.concurrent.Flow;
 
 @Component
 public class DatabaseLoader implements CommandLineRunner {
@@ -32,13 +34,26 @@ public class DatabaseLoader implements CommandLineRunner {
         Grouping testGrupp = new Grouping("grupp1");
         groupingRepository.save(testGrupp);
 
-        participantRepository.save(new Participant("Nina"));
+//FUNGERAR för att ladda in pa och pb och grupp a
+        Participant pA = new Participant("PA");
+        Participant pB = new Participant("PB");
 
-//        Optional<Participant> testPart = participantRepository.findById(1L);
-//        if (testPart.isPresent()) {
-//            testPart.get().addGrouping(testGrupp);
-//            participantRepository.save(testPart.get());
-//        }
+        groupingRepository.save(new Grouping("A", new HashSet<Participant>(){{
+                add(pA);
+                add(pB);
+            }}));
+
+//        // save a couple of publishers
+//        Grouping gA = new Grouping("GA");
+//        Grouping gB = new Grouping("GB");
+//
+//        participantRepository.save(new Participant("PA", new HashSet<Grouping>() {{
+//                add(gA);
+//                add(gB);
+//            }}));
+
+
+
     }
 
 
