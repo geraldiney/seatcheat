@@ -10,9 +10,10 @@ class LayoutContainer extends Component {
       success: false
     };
     this.changeHandler = this.changeHandler.bind(this);
-    this.addLayout = this.addLayout.bind(this);
+    // this.addLayout = this.addLayout.bind(this);
     this.clickHandler = this.clickHandler.bind(this);
   }
+
   changeHandler(event, type) {
     if (type === "rows") {
       this.setState({ numberOfRows: event.target.value });
@@ -21,20 +22,22 @@ class LayoutContainer extends Component {
     }
   }
 
-  clickHandler(event){
+  clickHandler(event) {
     let formData = new FormData();
     formData.append("numberOfRows", this.state.numberOfRows);
     formData.append("seatsPerRow", this.state.seatsPerRow)
-    this.addLayout(formData);
+    this.props.addLayout(formData);
     this.setState({ numberOfRows: "", seatsPerRow: "" });
-    
   }
 
-  addLayout(formData) {
-      this.props.postData("http://localhost:8080/api/addLayout", formData)
-      .then(data => {
-        this.setState({success : true});
-    })}
+  // addLayout(formData) {
+  //   this.props.postData("http://localhost:8080/api/addLayout", formData)
+  //     .then(data => {
+  //       this.setState(prevState => ({
+  //         participants: [...prevState.participants, data]
+  //       }));
+  //     })
+  // }
 
 
   render() {
@@ -56,7 +59,7 @@ class LayoutContainer extends Component {
           onChange={event => this.changeHandler(event, "perRow")}
           placeholder="Antal platser per rad"
         />
-        <button onClick={this.clickHandler}>OK!</button>
+        <button className="btn" onClick={this.clickHandler}>OK!</button>
       </div>
     );
   }
