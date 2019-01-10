@@ -31,20 +31,13 @@ class LayoutContainer extends Component {
   }
 
   addLayout(formData) {
-
-    fetch("http://localhost:8080/api/addLayout", {
-      method: "POST",
-      body: formData
-    })
-      .then(response => response.json())
+      this.props.postData("http://localhost:8080/api/addLayout", formData)
       .then(data => {
-        console.log(data);
         this.setState(prevState => ({
           participants: [...prevState.participants, data]
         }));
-      });
+    })}
 
-  }
 
   render() {
     return (

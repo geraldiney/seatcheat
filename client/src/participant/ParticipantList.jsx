@@ -18,7 +18,7 @@ class ParticipantList extends Component {
               </div>
             ))}
             </ul>
-            {/* <TableRenderTest name="kalle"></TableRenderTest> */}
+           
           </div>
 
          );
