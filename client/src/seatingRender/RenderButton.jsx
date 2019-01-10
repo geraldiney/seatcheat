@@ -16,13 +16,14 @@ class RenderButton extends Component {
         this.setState({
             renderSeats: !this.state.renderSeats
         });
+        this.props.showGroupOptions();
     }
 
     render() {
         let seats = null;
 
         if (this.state.renderSeats) {
-            seats = <SeatingRender participants={this.state.participants} />;
+            seats = <SeatingRender participants={this.props.participants} />;
         }
 
         return (
@@ -33,7 +34,7 @@ class RenderButton extends Component {
                 </button>
                 {seats}
             </div>
-
+// testa gör ny if för att slå på och av rendreringen
 
         );
     }
