@@ -6,7 +6,7 @@ class LayoutContainer extends Component {
     super(props);
     this.state = {
       numberOfRows: "",
-      numberOfSeatsPerRow: "",
+      seatsPerRow: "",
       success: false
     };
     this.changeHandler = this.changeHandler.bind(this);
@@ -18,16 +18,16 @@ class LayoutContainer extends Component {
     if (type === "rows") {
       this.setState({ numberOfRows: event.target.value });
     } else {
-      this.setState({ numberOfSeatsPerRow: event.target.value });
+      this.setState({ seatsPerRow: event.target.value });
     }
   }
 
   clickHandler(event) {
     let formData = new FormData();
     formData.append("numberOfRows", this.state.numberOfRows);
-    formData.append("numberOfSeatsPerRow", this.state.numberOfSeatsPerRow)
+    formData.append("seatsPerRow", this.state.seatsPerRow)
     this.props.addLayout(formData);
-    this.setState({ numberOfRows: "", numberOfSeatsPerRow: "" });
+    this.setState({ numberOfRows: "", seatsPerRow: "" });
   }
 
   // addLayout(formData) {
@@ -55,7 +55,7 @@ class LayoutContainer extends Component {
         <input
           id="perRow"
           type="number"
-          value={this.state.numberOfSeatsPerRow}
+          value={this.state.seatsPerRow}
           onChange={event => this.changeHandler(event, "perRow")}
           placeholder="Antal platser per rad"
         />
