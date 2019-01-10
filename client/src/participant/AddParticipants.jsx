@@ -34,7 +34,7 @@ class AddParticipants extends Component {
             value={this.state.newParticipantName}
             onChange={this.textHandler}
           />
-          <button onClick={this.clickHandler}>Lägg till</button>
+          <button className="btn" onClick={this.clickHandler}>Lägg till</button>
         </form>
       </div>
     );
