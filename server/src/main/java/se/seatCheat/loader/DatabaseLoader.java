@@ -2,35 +2,43 @@ package se.seatCheat.loader;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-import se.seatCheat.domain.Layout;
+import se.seatCheat.domain.Grouping;
 import se.seatCheat.domain.Participant;
+import se.seatCheat.repository.GroupingRepository;
 import se.seatCheat.repository.LayoutRepository;
 import se.seatCheat.repository.ParticipantRepository;
+
+import javax.servlet.http.Part;
+import java.util.Optional;
 
 @Component
 public class DatabaseLoader implements CommandLineRunner {
     private final ParticipantRepository participantRepository;
     private final LayoutRepository layoutRepository;
+    private final GroupingRepository groupingRepository;
 
-    public DatabaseLoader(ParticipantRepository participantRepository, LayoutRepository layoutRepository) {
+    public DatabaseLoader(ParticipantRepository participantRepository, LayoutRepository layoutRepository, GroupingRepository groupingRepository) {
         this.participantRepository = participantRepository;
         this.layoutRepository = layoutRepository;
+        this.groupingRepository = groupingRepository;
     }
 
     @Override
     public void run (String... strings) throws Exception{
-        Layout l = new Layout(10, 5);
-        layoutRepository.save(l);
-        participantRepository.save(new Participant("Said", l));
-        participantRepository.save(new Participant("Anna", l));
 
-        participantRepository.save(new Participant("Nina"));
         participantRepository.save(new Participant("Gerry"));
         participantRepository.save(new Participant("Patrik"));
-        participantRepository.save(new Participant("Louise"));
-        participantRepository.save(new Participant("Lina"));
 
-        participantRepository.findAll().forEach(System.out::println);
+        Grouping testGrupp = new Grouping("grupp1");
+        groupingRepository.save(testGrupp);
+
+        participantRepository.save(new Participant("Nina"));
+
+//        Optional<Participant> testPart = participantRepository.findById(1L);
+//        if (testPart.isPresent()) {
+//            testPart.get().addGrouping(testGrupp);
+//            participantRepository.save(testPart.get());
+//        }
     }
 
 

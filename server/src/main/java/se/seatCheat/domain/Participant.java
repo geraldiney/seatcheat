@@ -1,30 +1,29 @@
 package se.seatCheat.domain;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Participant {
 
-    @Id
-    @GeneratedValue
+    @Id @GeneratedValue
     private Long id;
-
     private String name;
+
+    @ManyToMany(mappedBy = "participants", fetch = FetchType.EAGER)
+    Set<Grouping> groupings;
 
     public Participant() {
     }
-
     public Participant(String name) {
         this.name = name;
     }
 
-    public Participant(String name, Layout layout) {
-        this.name = name;
-        this.layout = layout;
+    public Participant (String name, Grouping grouping){
+        this.name=name;
+        this.groupings.add(grouping);
     }
-
-    @ManyToOne
-    private Layout layout;
 
     public String getName() {
         return name;
@@ -36,6 +35,11 @@ public class Participant {
 
     public Long getId() {
         return id;
+    }
+
+
+    public void addGrouping(Grouping grouping) {
+        groupings.add(grouping);
     }
 
     @Override

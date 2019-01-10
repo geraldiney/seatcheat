@@ -1,21 +1,26 @@
 package se.seatCheat.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-public class Group {
+public class Grouping {
     @GeneratedValue @Id
     private Long id;
     private String name;
 
-    @OneToMany
-    private Set<ParticipantGroup> participantGroups;
+    @ManyToMany
+    @JoinTable(
+            name = "NAMN",
+            joinColumns = @JoinColumn(name = "grouping_id"),
+            inverseJoinColumns = @JoinColumn(name = "participant_id"))
+    private Set<Participant> participants;
 
-    public Group(String name) {
+
+
+    public Grouping(){}
+
+    public Grouping(String name) {
         this.name = name;
     }
 
