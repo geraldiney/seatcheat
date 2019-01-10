@@ -1,8 +1,8 @@
 package se.seatCheat.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import se.seatCheat.domain.Layout;
+import se.seatCheat.domain.Participant;
 import se.seatCheat.repository.LayoutRepository;
 
 import java.util.List;
@@ -16,8 +16,15 @@ public class LayoutController {
         this.layoutRepository = layoutRepository;
     }
 
-    @GetMapping("/layouts")
+    @GetMapping("/api/layouts")
     public List<Layout> viewLayouts() {
         return layoutRepository.findAll();
+
+    }
+
+    @PostMapping("/api/addLayout")
+    @CrossOrigin(origins = "http://localhost:3000")
+    public Layout saveNewLayout (@RequestParam int numberOfRows,@RequestParam int seatsPerRow){
+        return layoutRepository.save(new Layout(numberOfRows, seatsPerRow));
     }
 }

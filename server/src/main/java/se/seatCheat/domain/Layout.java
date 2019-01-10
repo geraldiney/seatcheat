@@ -9,12 +9,12 @@ public class Layout {
     @Id
     @GeneratedValue
     private Long id;
-    private int numberOfParticipants;
-    private int numberOfParticipantsPerSeatingUnit;
+    private int numberOfRows;
+    private int seatsPerRow;
 
-    public Layout(int numberOfParticipants, int numberOfParticipantsPerSeatingUnit) {
-        this.numberOfParticipants = numberOfParticipants;
-        this.numberOfParticipantsPerSeatingUnit = numberOfParticipantsPerSeatingUnit;
+    public Layout(int numberOfRows, int seatsPerRow) {
+        this.numberOfRows = numberOfRows;
+        this.seatsPerRow = seatsPerRow;
     }
 
     public Layout() {}
@@ -30,19 +30,19 @@ public class Layout {
         return id;
     }
 
-    public int getNumberOfParticipants() {
-        return numberOfParticipants;
+    public int getNumberOfRows() {
+        return numberOfRows;
     }
 
-    public void setNumberOfParticipants(int numberOfParticipants) {
-        this.numberOfParticipants = numberOfParticipants;
+    public void setNumberOfRows(int numberOfRows) {
+        this.numberOfRows = numberOfRows;
     }
 
-    public int getNumberOfParticipantsPerSeatingUnit() {
-        return numberOfParticipantsPerSeatingUnit;
+    public int getSeatsPerRow() {
+        return seatsPerRow;
     }
 
-    public void setNumberOfParticipantsPerSeatingUnit(int numberOfParticipantsPerSeatingUnit) {
-        this.numberOfParticipantsPerSeatingUnit = numberOfParticipantsPerSeatingUnit;
+    public void setSeatsPerRow(int seatsPerRow) {
+        this.seatsPerRow = seatsPerRow;
     }
 }
