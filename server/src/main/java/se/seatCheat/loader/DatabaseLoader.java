@@ -30,6 +30,8 @@ public class DatabaseLoader implements CommandLineRunner {
 
         participantRepository.save(new Participant("Gerry"));
         participantRepository.save(new Participant("Patrik"));
+        participantRepository.save(new Participant("Louise"));
+
 
         Grouping testGrupp = new Grouping("grupp1");
         groupingRepository.save(testGrupp);

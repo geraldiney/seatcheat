@@ -18,9 +18,5 @@ public class GroupingController {
         this.participantService = participantService;
     }
 
-    @GetMapping("/api/generate-groups")
-    @CrossOrigin(origins = "http://localhost:3000")
-    public List <List<Participant>>  generateGroups (){
-        return participantService.generateGroups(3, 2);
-    }
+
 }
