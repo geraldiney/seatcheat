@@ -1,7 +1,14 @@
 body {
-  background-color: #00A69c;
+  background-color: #00a69c;
 }
-.card{
-    background-color: #F19784;
-    box-shadow: 5px 10px black;
+.card {
+  background-color: #f19784;
+  box-shadow: 5px 10px black;
+}
+.list {
+  justify-content: center;
+}
+ul {
+  text-align: center;
+  list-style-type: none;
 }

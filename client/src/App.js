@@ -50,16 +50,16 @@ class App extends Component {
   }
 
   addLayout(formData) {
-    this.postData("http://localhost:8080/api/addLayout", formData)
-    .then(data => this.setState({currentLayoutId : data.id}));
+    this.postData("http://localhost:8080/api/addLayout", formData).then(data =>
+      this.setState({ currentLayoutId: data.id })
+    );
   }
 
   fetchScrambledParticipantGroup() {
     console.log("hej från längsta variabelnamnet");
     let formData = new FormData();
-    formData.append("id",this.state.currentLayoutId);
+    formData.append("id", this.state.currentLayoutId);
     return this.postData("http://localhost:8080/api/generate-groups", formData);
-    
   }
 
   getData(url) {
@@ -78,24 +78,26 @@ class App extends Component {
   }
   render() {
     const displayOptions = (
-      <div className="App row">
-        <div className="col-sm-4">
-          <ParticipantContainer
-            participants={this.state.participants}
-            addParticipant={this.addParticipant}
-          />
-        </div>
-        <div className="col-sm-4">
-          <LayoutContainer
-            addLayout={this.addLayout}
-            setRowsAndsSeats={this.changeNumberOfRowsAndSeat}
-          />
-        </div>
-        <div className="col-sm-4">
-          <RenderButton showGroupOptions={this.showGroupOptions} />
-        </div>
+      <div className="App">
         <div className="row">
-          <div className="col">
+          <div className="col-sm-4">
+            <LayoutContainer
+              addLayout={this.addLayout}
+              setRowsAndsSeats={this.changeNumberOfRowsAndSeat}
+            />
+          </div>
+          <div className="col-sm-4">
+            <ParticipantContainer
+              participants={this.state.participants}
+              addParticipant={this.addParticipant}
+            />
+          </div>
+          <div className="col-sm-4">
+            <RenderButton showGroupOptions={this.showGroupOptions} />
+          </div>
+        </div>
+        <div className="row list">
+          <div className="col-4 list">
             <ParticipantList participants={this.state.participants} />
           </div>
         </div>
