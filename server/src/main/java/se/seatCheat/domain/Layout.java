@@ -19,12 +19,12 @@ public class Layout {
 
     public Layout() {}
 
-    @OneToMany(mappedBy = "layout", fetch = FetchType.EAGER)
-    private Set<Participant> participants;
+//    @OneToMany(mappedBy = "layout", fetch = FetchType.EAGER)
+//    private Set<Participant> participants;
 
-    public void addParticipant(Participant participant) {
-       participants.add(participant);
-    }
+//    public void addParticipant(Participant participant) {
+//       participants.add(participant);
+//    }
 
     public Long getId() {
         return id;
