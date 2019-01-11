@@ -10,7 +10,7 @@
   }
   
   .table {
-    position: absolute;
+    position: relative;
     top: 16.5%;
     left: 10%;
     width: 70%;
