@@ -27,4 +27,6 @@ public class LayoutController {
     public Layout saveNewLayout (@RequestParam int numberOfRows,@RequestParam int seatsPerRow){
         return layoutRepository.save(new Layout(numberOfRows, seatsPerRow));
     }
+
+
 }

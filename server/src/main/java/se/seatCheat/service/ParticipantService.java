@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 import se.seatCheat.domain.Participant;
 import se.seatCheat.repository.ParticipantRepository;
 
+import javax.servlet.http.Part;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -20,41 +21,36 @@ public class ParticipantService {
         this.participantRepository = participantRepository;
     }
 
-    public List<Participant> shuffleParticipants() {
-
-        List<Participant> participants = participantRepository.findAll();
+    public List<Participant> shuffleParticipants(List<Participant> participants) {
         Collections.shuffle(participants);
         return participants;
     }
 
-    public List<List<Participant>> generateGroups(int numberOfGroups) {
+
+    public List<List<Participant>> generateGroups(int numberOfRows, int seatsPerRow) {
 
         List<Participant> participants = participantRepository.findAll();
 
-        if (numberOfGroups <= 0 || participants.size() < numberOfGroups) {
+        if (numberOfRows <= 0 || participants.size()>numberOfRows*seatsPerRow) {
             return null;
         }
 
-        //räkna ut hur många participants varje grupp/bord
-        //Placera ut participants i grupp/bord
+        Participant [][] groups = new Participant[numberOfRows][seatsPerRow];
 
-        Participant [][] groups = new Participant[numberOfGroups][];
+        int numberOfRemainingPersonsToPlaceIntoGroups = participants.size()% numberOfRows;
 
-        int minimumGroupSize = participants.size()/numberOfGroups;
-        int numberOfRemainingPersonsToPlaceIntoGroups = participants.size()% numberOfGroups;
-
-        for (int groupId = 0; groupId < numberOfGroups; groupId++){
+        for (int groupId = 0; groupId < numberOfRows; groupId++){
             if (numberOfRemainingPersonsToPlaceIntoGroups > 0){
-                groups[groupId]= new Participant[minimumGroupSize + 1];
+                groups[groupId]= new Participant[seatsPerRow + 1];
                 numberOfRemainingPersonsToPlaceIntoGroups --;
             }
             else {
-                groups[groupId] = new Participant[minimumGroupSize];
+                groups[groupId] = new Participant[seatsPerRow];
             }
         }
-        List <Participant> randomizedParticipants = shuffleParticipants();
+        List <Participant> randomizedParticipants = shuffleParticipants(participants);
 
-        for (int groupId = 0, personId = 0; groupId < numberOfGroups; groupId++){
+        for (int groupId = 0, personId = 0; groupId < numberOfRows; groupId++){
             int groupSize = groups[groupId].length;
 
             for (int teamMember = 0; teamMember < groupSize; teamMember++, personId++){

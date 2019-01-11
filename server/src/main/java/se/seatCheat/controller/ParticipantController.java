@@ -32,11 +32,7 @@ public class ParticipantController {
 
     }
 
-    @GetMapping("/api/generate-groups")
-    @CrossOrigin(origins = "http://localhost:3000")
-    public List <List<Participant>>  generateGroups (){
-        return participantService.generateGroups(4);
-    }
+
 
 }
 
