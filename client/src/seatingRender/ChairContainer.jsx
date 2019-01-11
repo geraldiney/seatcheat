@@ -18,7 +18,7 @@ class ChairContainer extends Component {
               </span>
             ))}
             </div>
-
+// flytta ypp denna till tablex
           );
     }
 }

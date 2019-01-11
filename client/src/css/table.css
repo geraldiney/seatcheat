@@ -2,7 +2,7 @@
     position: relative;
     margin: auto;
     display: block;
-    border: solid 4px red;
+    /* border: solid 4px red; */
     margin-top: 8%;
     width: 600px;
     height: 420px;
@@ -10,7 +10,7 @@
   }
   
   .table {
-    position: absolute;
+    position: relative;
     top: 16.5%;
     left: 10%;
     width: 70%;

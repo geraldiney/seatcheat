@@ -11,6 +11,7 @@ class Table extends Component {
         return (
 
             <div className ="table">
+
             <ChairContainer participants={this.props.participants}></ChairContainer>
 
             </div>
@@ -21,3 +22,12 @@ class Table extends Component {
 }
  
 export default Table;
+
+
+// <div className="box">
+// {this.props.participants.map((rowdata, i) => (
+//   <Table participants={rowdata} />
+// ))}
+// }
+// </div>
+// );

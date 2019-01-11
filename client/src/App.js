@@ -7,21 +7,26 @@ import ParticipantContainer from "./participant/ParticipantContainer";
 import LayoutContainer from "./layout/LayoutContainer";
 import ParticipantList from "./participant/ParticipantList";
 import RenderButton from "./seatingRender/RenderButton";
+import SeatingRender from "./seatingRender/SeatingRender";
 
 class App extends Component {
   constructor() {
     super();
-    this.state={
+    this.state = {
       participants: [],
-      success: false
-
-    }
+      success: false,
+      toggleGroupOptions: true,
+      scrambledParticipantGroup: []
+    };
     this.getData = this.getData.bind(this);
     this.postData = this.postData.bind(this);
     this.addParticipant = this.addParticipant.bind(this);
     this.fetchParticipant = this.fetchParticipant.bind(this);
     this.addLayout = this.addLayout.bind(this);
-
+    this.showGroupOptions = this.showGroupOptions.bind(this);
+    this.fetchScrambledParticipantGroup = this.fetchScrambledParticipantGroup.bind(
+      this
+    );
   }
 
   componentDidMount() {
@@ -29,13 +34,13 @@ class App extends Component {
   }
 
   fetchParticipant() {
-    this.getData("http://localhost:8080/")
-      .then(data => this.setState({ participants: data}));
+    this.getData("http://localhost:8080/").then(data =>
+      this.setState({ participants: data })
+    );
   }
 
   addParticipant(formData) {
-    this.postData("http://localhost:8080/", formData)
-    .then(data => {
+    this.postData("http://localhost:8080/", formData).then(data => {
       this.setState(prevState => ({
         participants: [...prevState.participants, data]
       }));
@@ -43,10 +48,20 @@ class App extends Component {
   }
 
   addLayout(formData) {
-    this.postData("http://localhost:8080/api/addLayout", formData)
-      .then(this.setState({success: true}));
+    this.postData("http://localhost:8080/api/addLayout", formData).then(
+      this.setState({ success: true })
+    );
   }
 
+  fetchScrambledParticipantGroup() {
+    console.log("hej från längsta variabelnamnet");
+   return this.getData("http://localhost:8080/api/generate-groups")
+    // .then(data =>
+    //   this.setState({ scrambledParticipantGroup: data })
+      
+    // );
+    // console.log(this.state.scrambledParticipantGroup);
+  }
 
   getData(url) {
     return fetch(url).then(response => response.json());
@@ -59,19 +74,23 @@ class App extends Component {
     }).then(response => response.json());
   }
 
+  showGroupOptions() {
+    this.setState({ toggleGroupOptions: !this.state.toggleGroupOptions });
+  }
   render() {
-    return (
-      <div>
-        <div className="App row">
-          <div className="col-sm-4">
-            <ParticipantContainer participants= {this.state.participants} addParticipant = {this.addParticipant} />
-          </div>
-          <div className="col-sm-4">
-            <LayoutContainer addLayout={this.addLayout} />
-          </div>
-          <div className="col-sm-4">
-            <RenderButton></RenderButton>
-          </div>
+    const displayOptions = (
+      <div className="App row">
+        <div className="col-sm-4">
+          <ParticipantContainer
+            participants={this.state.participants}
+            addParticipant={this.addParticipant}
+          />
+        </div>
+        <div className="col-sm-4">
+          <LayoutContainer addLayout={this.addLayout} />
+        </div>
+        <div className="col-sm-4">
+          <RenderButton showGroupOptions={this.showGroupOptions} />
         </div>
         <div className="row">
           <div className="col">
@@ -80,6 +99,19 @@ class App extends Component {
         </div>
       </div>
     );
+
+    const displaySeats = (
+      <SeatingRender
+        participants={this.state.participants}
+        fetch={this.fetchScrambledParticipantGroup}
+      />
+    );
+    let groupOptions;
+    this.state.toggleGroupOptions
+      ? (groupOptions = displayOptions)
+      : (groupOptions = displaySeats);
+
+    return <div>{groupOptions}</div>;
   }
 }
 
