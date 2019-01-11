@@ -15,8 +15,8 @@ class App extends Component {
     this.state = {
       participants: [],
       success: false,
-      showSeatChart: false,
-      showGroupOptions: true
+      toggleGroupOptions: true,
+      scrambledParticipantGroup: []
     };
     this.getData = this.getData.bind(this);
     this.postData = this.postData.bind(this);
@@ -24,6 +24,9 @@ class App extends Component {
     this.fetchParticipant = this.fetchParticipant.bind(this);
     this.addLayout = this.addLayout.bind(this);
     this.showGroupOptions = this.showGroupOptions.bind(this);
+    this.fetchScrambledParticipantGroup = this.fetchScrambledParticipantGroup.bind(
+      this
+    );
   }
 
   componentDidMount() {
@@ -50,6 +53,16 @@ class App extends Component {
     );
   }
 
+  fetchScrambledParticipantGroup() {
+    console.log("hej från längsta variabelnamnet");
+   return this.getData("http://localhost:8080/api/generate-groups")
+    // .then(data =>
+    //   this.setState({ scrambledParticipantGroup: data })
+      
+    // );
+    // console.log(this.state.scrambledParticipantGroup);
+  }
+
   getData(url) {
     return fetch(url).then(response => response.json());
   }
@@ -61,41 +74,43 @@ class App extends Component {
     }).then(response => response.json());
   }
 
-  showGroupOptions(){
-this.setState({groupOptions: !this.state.groupOptions})
-this.setState({showSeatChart: !this.state.showSeatChart})
+  showGroupOptions() {
+    this.setState({ toggleGroupOptions: !this.state.toggleGroupOptions });
   }
   render() {
-    let groupOptions = null;
-
-    if (this.state.showGroupOptions) {
-      groupOptions = (
-        <div className="App row">
-          <div className="col-sm-4">
-            <ParticipantContainer
-              participants={this.state.participants}
-              addParticipant={this.addParticipant}
-            />
-          </div>
-          <div className="col-sm-4">
-            <LayoutContainer addLayout={this.addLayout} />
-          </div>
-          <div className="col-sm-4">
-            <RenderButton showGroupOptions ={this.showGroupOptions} />
-          </div>
-          <div className="row">
-            <div className="col">
-              <ParticipantList participants={this.state.participants} />
-            </div>
+    const displayOptions = (
+      <div className="App row">
+        <div className="col-sm-4">
+          <ParticipantContainer
+            participants={this.state.participants}
+            addParticipant={this.addParticipant}
+          />
+        </div>
+        <div className="col-sm-4">
+          <LayoutContainer addLayout={this.addLayout} />
+        </div>
+        <div className="col-sm-4">
+          <RenderButton showGroupOptions={this.showGroupOptions} />
+        </div>
+        <div className="row">
+          <div className="col">
+            <ParticipantList participants={this.state.participants} />
           </div>
         </div>
-      );
-    }
-    else{
-      groupOptions = (<SeatingRender participants={this.state.participants}></SeatingRender>);
-    }
-    console.log("groupoptions:")
-    console.log(groupOptions);
+      </div>
+    );
+
+    const displaySeats = (
+      <SeatingRender
+        participants={this.state.participants}
+        fetch={this.fetchScrambledParticipantGroup}
+      />
+    );
+    let groupOptions;
+    this.state.toggleGroupOptions
+      ? (groupOptions = displayOptions)
+      : (groupOptions = displaySeats);
+
     return <div>{groupOptions}</div>;
   }
 }
