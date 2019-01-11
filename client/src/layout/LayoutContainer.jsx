@@ -30,20 +30,13 @@ class LayoutContainer extends Component {
     this.setState({ numberOfRows: "", seatsPerRow: "" });
   }
 
-  // addLayout(formData) {
-  //   this.props.postData("http://localhost:8080/api/addLayout", formData)
-  //     .then(data => {
-  //       this.setState(prevState => ({
-  //         participants: [...prevState.participants, data]
-  //       }));
-  //     })
-  // }
+
 
 
   render() {
     return (
       <div className="layout card">
-        <h5 className="card-title">Choose Layout</h5>
+        <h5 className="card-title">Välj layout</h5>
         <div className="cinema" />
         <input
           id="rows"
@@ -59,7 +52,7 @@ class LayoutContainer extends Component {
           onChange={event => this.changeHandler(event, "perRow")}
           placeholder="Antal platser per rad"
         />
-        <button className="btn" onClick={this.clickHandler}>OK!</button>
+        <button className="btn" onClick={this.clickHandler}>Spara!</button>
       </div>
     );
   }

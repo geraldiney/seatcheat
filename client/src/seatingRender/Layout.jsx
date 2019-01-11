@@ -13,7 +13,7 @@ class Layout extends Component {
     return (
       <div className="box">
         {this.props.participants.map((rowdata, i) => (
-          <Table key={i} participants={rowdata} />
+          <Table participants={rowdata} />
         ))}
         
       </div>
@@ -22,8 +22,4 @@ class Layout extends Component {
 }
 export default Layout;
 
-// {this.props.participants.map(participant => (
-//     <span key={participant.id}>
-//       <Chair name={participant.name}></Chair>
-//     </span>
-//   ))}
+

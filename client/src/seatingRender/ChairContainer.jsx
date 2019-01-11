@@ -13,12 +13,13 @@ class ChairContainer extends Component {
 
             <div id="chair-container">
             {this.props.participants.map(participant => (
-              <span key={participant.id}>
-                <Chair name={participant.name}></Chair>
+              <span>
+                  {participant===null ?<Chair name=""></Chair> : <Chair name={participant.name}></Chair>}
+                
               </span>
             ))}
             </div>
-// flytta ypp denna till tablex
+
           );
     }
 }

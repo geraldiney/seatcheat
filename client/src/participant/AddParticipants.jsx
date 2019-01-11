@@ -30,7 +30,7 @@ class AddParticipants extends Component {
         <form>
           <input
             type="textarea"
-            placeholder="Enter participant"
+            placeholder="Lägg till deltagare"
             value={this.state.newParticipantName}
             onChange={this.textHandler}
           />

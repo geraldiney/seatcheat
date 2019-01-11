@@ -14,9 +14,11 @@ class App extends Component {
     super();
     this.state = {
       participants: [],
-      success: false,
       toggleGroupOptions: true,
-      scrambledParticipantGroup: []
+      scrambledParticipantGroup: [],
+      numberOfRows: "",
+      seatsPerRow: "",
+      currentLayoutId: ""
     };
     this.getData = this.getData.bind(this);
     this.postData = this.postData.bind(this);
@@ -48,19 +50,16 @@ class App extends Component {
   }
 
   addLayout(formData) {
-    this.postData("http://localhost:8080/api/addLayout", formData).then(
-      this.setState({ success: true })
-    );
+    this.postData("http://localhost:8080/api/addLayout", formData)
+    .then(data => this.setState({currentLayoutId : data.id}));
   }
 
   fetchScrambledParticipantGroup() {
     console.log("hej från längsta variabelnamnet");
-   return this.getData("http://localhost:8080/api/generate-groups")
-    // .then(data =>
-    //   this.setState({ scrambledParticipantGroup: data })
-      
-    // );
-    // console.log(this.state.scrambledParticipantGroup);
+    let formData = new FormData();
+    formData.append("id",this.state.currentLayoutId);
+    return this.postData("http://localhost:8080/api/generate-groups", formData);
+    
   }
 
   getData(url) {
@@ -87,7 +86,10 @@ class App extends Component {
           />
         </div>
         <div className="col-sm-4">
-          <LayoutContainer addLayout={this.addLayout} />
+          <LayoutContainer
+            addLayout={this.addLayout}
+            setRowsAndsSeats={this.changeNumberOfRowsAndSeat}
+          />
         </div>
         <div className="col-sm-4">
           <RenderButton showGroupOptions={this.showGroupOptions} />
