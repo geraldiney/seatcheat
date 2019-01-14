@@ -24,6 +24,9 @@ public class LayoutService {
     }
 
 
+    //för att förbereda för mer funktionalitet borde denna fkt ta in en List<Participants>
+    //den borde också ta in en boolean, alternativt dela upp fkt för rowseating och groupseating i två olika
+
     public List<List<Participant>> generateGroups(int numberOfRows, int seatsPerRow) {
 
         List<Participant> participants = participantRepository.findAll();
