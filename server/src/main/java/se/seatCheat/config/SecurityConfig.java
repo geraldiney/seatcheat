@@ -61,8 +61,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .cors()
                 .and()
-                .csrf()
-                .disable()
+                .csrf().disable()
                 .exceptionHandling()
                 .authenticationEntryPoint(unauthorizedHandler)
                 .and()
@@ -78,19 +77,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/**/*.jpg",
                         "/**/*.html",
                         "/**/*.css",
-                        "/**/*.js")
-                .permitAll()
-                .antMatchers("/api/auth/**")
-                .permitAll()
-                .antMatchers("/api/user/checkUsernameAvailability", "/api/user/checkEmailAvailability")
-                .permitAll()
-                .antMatchers(HttpMethod.GET, "/api/polls/**", "/api/users/**")
-                .permitAll()
+                        "/**/*.js").permitAll()
+                .antMatchers("/api/auth/**").permitAll()
+                .antMatchers("/api/user/checkUsernameAvailability", "/api/user/checkEmailAvailability").permitAll()
+                .antMatchers(HttpMethod.GET, "/api/polls/**", "/api/users/**").permitAll()
                 .anyRequest()
                 .authenticated();
 
         // Add our custom JWT security filter
         http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
+
 
     }
 }

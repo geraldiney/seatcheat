@@ -4,9 +4,9 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import se.seatCheat.domain.Grouping;
 import se.seatCheat.domain.Participant;
-import se.seatCheat.repository.GroupingRepository;
-import se.seatCheat.repository.LayoutRepository;
-import se.seatCheat.repository.ParticipantRepository;
+import se.seatCheat.domain.Role;
+import se.seatCheat.domain.User;
+import se.seatCheat.repository.*;
 
 import javax.servlet.http.Part;
 import java.util.HashSet;
@@ -18,29 +18,37 @@ public class DatabaseLoader implements CommandLineRunner {
     private final ParticipantRepository participantRepository;
     private final LayoutRepository layoutRepository;
     private final GroupingRepository groupingRepository;
+    private final RoleRepository roleRepository;
+    private final UserRepository userRepository;
 
-    public DatabaseLoader(ParticipantRepository participantRepository, LayoutRepository layoutRepository, GroupingRepository groupingRepository) {
+    public DatabaseLoader(ParticipantRepository participantRepository, LayoutRepository layoutRepository, GroupingRepository groupingRepository, RoleRepository roleRepository, UserRepository userRepository) {
         this.participantRepository = participantRepository;
         this.layoutRepository = layoutRepository;
         this.groupingRepository = groupingRepository;
+        this.roleRepository = roleRepository;
+        this.userRepository = userRepository;
     }
 
     @Override
     public void run (String... strings) throws Exception{
 
+        roleRepository.save(new Role("ROLE_USER"));
+
         participantRepository.save(new Participant("Gerry"));
         participantRepository.save(new Participant("Patrik"));
         participantRepository.save(new Participant("Louise"));
 
+        userRepository.save(new User("Andreas", "password", "andreas@academy" )
+        .addRole(roleRepository.findByName("ROLE_USER").get()));
 
-        Grouping testGrupp = new Grouping("grupp1");
+        Grouping testGrupp = new Grouping("C# HT18");
         groupingRepository.save(testGrupp);
 
 //FUNGERAR för att ladda in pa och pb och grupp a
-        Participant pA = new Participant("PA");
-        Participant pB = new Participant("PB");
+        Participant pA = new Participant("Nina");
+        Participant pB = new Participant("Lina");
 
-        groupingRepository.save(new Grouping("A", new HashSet<Participant>(){{
+        groupingRepository.save(new Grouping("Java HT18", new HashSet<Participant>(){{
                 add(pA);
                 add(pB);
             }}));
