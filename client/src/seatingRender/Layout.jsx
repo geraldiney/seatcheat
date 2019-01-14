@@ -1,17 +1,22 @@
 import React, { Component } from "react";
 import Table from "./Table";
-import "../css/table.css";
-import ChairContainer from "./ChairContainer";
+import "../css/layout.css";
 
 class Layout extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
   }
 
   render() {
+
+    var boxStyle = {
+      // border: '2px dashed red', 
+      width:'80%'
+      //width: this.props.seatsPerRow*110+'px'
+    };
+    
     return (
-      <div className="box">
+      <div className="box" style={boxStyle}>
         {this.props.participants.map((rowdata, i) => (
           <Table participants={rowdata} />
         ))}

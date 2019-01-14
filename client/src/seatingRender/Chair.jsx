@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import "../css/table.css";
+import "../css/layout.css";
 
 class Chair extends Component {
     constructor(props) {

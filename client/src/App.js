@@ -51,12 +51,11 @@ class App extends Component {
 
   addLayout(formData) {
     this.postData("http://localhost:8080/api/addLayout", formData).then(data =>
-      this.setState({ currentLayoutId: data.id })
+      this.setState({ currentLayoutId: data.id, seatsPerRow: data.seatsPerRow })
     );
   }
 
   fetchScrambledParticipantGroup() {
-    console.log("hej från längsta variabelnamnet");
     let formData = new FormData();
     formData.append("id", this.state.currentLayoutId);
     return this.postData("http://localhost:8080/api/generate-groups", formData);
@@ -106,6 +105,7 @@ class App extends Component {
 
     const displaySeats = (
       <SeatingRender
+        seatsPerRow={this.state.seatsPerRow}
         participants={this.state.participants}
         fetch={this.fetchScrambledParticipantGroup}
       />

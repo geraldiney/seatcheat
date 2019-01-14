@@ -13,13 +13,11 @@ class SeatingRender extends Component {
         this.setState({
           scrambledGroup: data
       });
-      
-     console.log(this.state.scrambledGroup);
     })};    
   
   render() {
     
-    return <Layout participants={this.state.scrambledGroup} />;
+    return <Layout participants={this.state.scrambledGroup} seatsPerRow={this.props.seatsPerRow} />;
   }
 }
 

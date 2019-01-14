@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import "../css/table.css";
+import "../css/layout.css";
 import ChairContainer from './ChairContainer';
 
 class Table extends Component {
@@ -10,12 +10,11 @@ class Table extends Component {
     render() { 
         return (
 
-            <div className ="table">
-
-            <ChairContainer participants={this.props.participants}></ChairContainer>
-
+            <div>
+            <div className ="renderedTable">
             </div>
-
+            <ChairContainer participants={this.props.participants}></ChairContainer>
+            </div>
 
           );
     }
