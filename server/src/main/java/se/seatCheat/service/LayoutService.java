@@ -63,7 +63,7 @@ public class LayoutService {
         for (int seat=0, pI =0; seat<seatsPerRow; seat++){
             for (int row = 0; row < numberOfRows; row ++, pI++){
                 if (participants.size()== pI){
-                    return arrayToListNonNull(groups);
+                    return arrayToList(groups);
                 }
                 groups[row][seat]=participants.get(pI);
             }
