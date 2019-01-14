@@ -94,4 +94,9 @@ public class User {
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
+
+    public User addRole(Role role) {
+        this.roles.add(role);
+        return this;
+    }
 }
