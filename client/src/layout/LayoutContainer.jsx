@@ -37,6 +37,7 @@ class LayoutContainer extends Component {
     return (
       <div className="layout card">
         <h5 className="card-title">Välj layout</h5>
+        
         <div className="cinema" />
         <input
           id="rows"

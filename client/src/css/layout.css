@@ -30,7 +30,9 @@ margin: 1%;
     margin-top: 8%;
     /* width: 600px;
     height: 420px; */
-    background: none;
+    background-color: rgba(255, 255, 255, 0.822);
+    padding: 5%;
+    border-radius: 10px;
   }
   
   .renderedTable {
@@ -63,7 +65,7 @@ margin: 1%;
     min-width: 50px;
     height: 80%;
     border-radius: 10%;
-    background: #1d4c9a;
+    background: #1D4C9A;
     vertical-align: top;
     display: inline-block;
     *display: inline;
