@@ -42,7 +42,7 @@ margin: 1%;
     background: #a6becf;
     border-radius: 10px;
     z-index: 1;
-    box-shadow: 5px 5px 5px black
+    box-shadow: 5px 5px 5px rgb(70, 70, 70)
   }
   
   #chair-container {

@@ -7,7 +7,7 @@ background-size: cover;
 }
 .card {
   background-color: #f19784;
-  box-shadow: 5px 10px black;
+  box-shadow: 5px 10px rgb(70,70,70);
 }
 .list {
   justify-content: center;
