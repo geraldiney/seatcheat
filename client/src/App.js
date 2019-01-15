@@ -8,6 +8,7 @@ import LayoutContainer from "./layout/LayoutContainer";
 import ParticipantList from "./participant/ParticipantList";
 import RenderButton from "./seatingRender/RenderButton";
 import SeatingRender from "./seatingRender/SeatingRender";
+import LoginContainer from "./start/LoginContainer";
 
 class App extends Component {
   constructor() {
@@ -101,6 +102,7 @@ class App extends Component {
             <ParticipantList participants={this.state.participants} />
           </div>
         </div>
+        <LoginContainer postData={this.postData} />
       </div>
     );
 
