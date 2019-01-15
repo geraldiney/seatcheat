@@ -12,7 +12,9 @@ class ParticipantContainer extends Component {
   render() {
 
     return (
-      <div className="card">
+      <div className="">
+            <h1>2</h1>
+
         <AddParticipants
           participants={this.props.participants}
           addParticipant={this.props.addParticipant}

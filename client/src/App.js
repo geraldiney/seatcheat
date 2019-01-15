@@ -76,23 +76,24 @@ class App extends Component {
   showGroupOptions() {
     this.setState({ toggleGroupOptions: !this.state.toggleGroupOptions });
   }
+
   render() {
     const displayOptions = (
       <div className="App">
         <div className="row">
-          <div className="col-sm-4">
+          <div className="col-lg-4 col-sm-12" id="stretch1">
             <LayoutContainer
               addLayout={this.addLayout}
               setRowsAndsSeats={this.changeNumberOfRowsAndSeat}
             />
           </div>
-          <div className="col-sm-4">
+          <div className="col-lg-4 col-sm-12" id="stretch2">
             <ParticipantContainer
               participants={this.state.participants}
               addParticipant={this.addParticipant}
             />
           </div>
-          <div className="col-sm-4">
+          <div className="col-lg-4 col-sm-12" id="stretch3">
             <RenderButton showGroupOptions={this.showGroupOptions} />
           </div>
         </div>
@@ -102,6 +103,7 @@ class App extends Component {
           </div>
         </div>
       </div>
+
     );
 
     const displaySeats = (

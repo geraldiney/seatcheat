@@ -10,8 +10,10 @@ class RenderButton extends Component {
 
   render() {
     return (
-      <div className="card">
-        <h5 className="card-title">Visa placering</h5>
+      <div className="">
+            <h1>3</h1>
+
+        <h5 className="">Visa placering</h5>
         <button className="btn" onClick={this.props.showGroupOptions}>
           Visa placering
         </button>

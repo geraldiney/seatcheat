@@ -1,10 +1,5 @@
-body {
-  background:  url("../img/Background2.jpg");
-height: 100%;
-background-position: center;
-background-repeat: no-repeat;
-background-size: cover;
-}
+@import url('https://fonts.googleapis.com/css?family=Lato:700%7CMontserrat:900%7CRoboto:100%7CWork+Sans:600');
+
 .card {
   background-color: #f19784;
   box-shadow: 5px 10px rgb(70,70,70);
@@ -15,4 +10,45 @@ background-size: cover;
 ul {
   text-align: center;
   list-style-type: none;
+}
+
+h5 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 3em;
+  color: white;
+}
+
+h1 {
+    font-family: 'Work Sans', sans-serif;
+    color: white;
+    font-size: 15em;
+}
+.testparent {
+
+    width : 300px;
+	height : 100px;
+	border : 2px solid black;
+	margin : 0 auto;
+	padding : 5px;
+	display : flex;
+	justify-content : space-between;
+
+}
+
+.test {
+  background-color: white;
+  max-width: 25%;
+  max-height: 100%;
+  position: relative;
+  border-radius: 10px;
+    height : 100px;
+	width : 100px;
+	text-align : center;
+}
+
+.testrow {
+  background-color:black;
+  height: 10px;
+  margin: 6px;
+  border-radius: 10px;
 }

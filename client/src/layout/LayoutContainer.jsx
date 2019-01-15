@@ -37,18 +37,32 @@ class LayoutContainer extends Component {
 
   render() {
     return (
-      <div className="layout card">
-        <h5 className="card-title">Välj layout</h5>
-        <div>
-          <label className="radio">
+
+      <div className="">
+        <h1>1</h1>
+        <h5 className="">Välj layout</h5>
+
+        <div className="testparent">
+          <div className="test">
+            <div className="testrow"></div>
+            <div className="testrow"></div>
+            <div className="testrow"></div>
+          </div>
+          <div className="test">
+            <div className="testrow"></div>
+            <div className="testrow"></div>
+            <div className="testrow"></div>
+          </div>
+        </div>
+
+        {/* <label className="radio">
             <input name="seating" type="radio" onClick={event => this.changeHandler(event, "cinema")}></input>
             Fyll ut rader
-          </label>
-          <label className="radio">
+          </label> */}
+        {/* <label className="radio">
             <input name="seating" type="radio" onClick={event => this.changeHandler(event, "groups")}></input>
             Jämna grupper
-          </label>
-        </div>
+          </label> */}
 
         <input
           id="rows"
