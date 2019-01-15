@@ -32,7 +32,6 @@ class LayoutContainer extends Component {
     formData.append("seatsPerRow", this.state.seatsPerRow);
     formData.append("rowSeating", this.state.rowSeating);
     this.props.addLayout(formData);
-    this.setState({ numberOfRows: "", seatsPerRow: "" });
   }
 
 
