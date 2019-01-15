@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Login from "./Login";
+import Register from "./Register";
 
 class LoginContainer extends Component {
   constructor(props) {
@@ -10,7 +10,7 @@ class LoginContainer extends Component {
     return (
       <div>
         {/* <Register /> */}
-        <Login postData={this.props.postData} />
+        <Register />
       </div>
     );
   }
