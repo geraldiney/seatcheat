@@ -11,10 +11,12 @@ public class Layout {
     private Long id;
     private int numberOfRows;
     private int seatsPerRow;
+    private boolean rowSeating;
 
-    public Layout(int numberOfRows, int seatsPerRow) {
+    public Layout(int numberOfRows, int seatsPerRow, boolean rowSeating) {
         this.numberOfRows = numberOfRows;
         this.seatsPerRow = seatsPerRow;
+        this.rowSeating = rowSeating;
     }
 
     public Layout() {}
@@ -44,5 +46,13 @@ public class Layout {
 
     public void setSeatsPerRow(int seatsPerRow) {
         this.seatsPerRow = seatsPerRow;
+    }
+
+    public boolean isRowSeating() {
+        return rowSeating;
+    }
+
+    public void setRowSeating(boolean rowSeating) {
+        this.rowSeating = rowSeating;
     }
 }

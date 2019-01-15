@@ -27,22 +27,22 @@ public class LayoutController {
 
     @PostMapping("/api/addLayout")
     @CrossOrigin(origins = "http://localhost:3000")
-    public Layout saveNewLayout (@RequestParam int numberOfRows,@RequestParam int seatsPerRow){
-        return layoutRepository.save(new Layout(numberOfRows, seatsPerRow));
+    public Layout saveNewLayout (@RequestParam int numberOfRows,@RequestParam int seatsPerRow, @RequestParam boolean rowSeating){
+        return layoutRepository.save(new Layout(numberOfRows, seatsPerRow, rowSeating));
     }
 
     @GetMapping("/api/generate-groups")
     @CrossOrigin(origins = "http://localhost:3000")
     public List <List<Participant>>  generateGroups (){
 
-        return layoutService.generateGroups(3, 2);
+        return layoutService.generateGroups(3, 2, true);
     }
 
     @PostMapping ("/api/generate-groups")
     @CrossOrigin(origins = "http://localhost:3000")
     public List <List<Participant>> generateGroups(@RequestParam Long id){
         Layout layout= layoutRepository.findById(id).get();
-        return layoutService.generateGroups(layout.getNumberOfRows(),layout.getSeatsPerRow());
+        return layoutService.generateGroups(layout.getNumberOfRows(),layout.getSeatsPerRow(), layout.isRowSeating());
     }
 
 

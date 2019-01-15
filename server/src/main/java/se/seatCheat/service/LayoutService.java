@@ -27,7 +27,7 @@ public class LayoutService {
     //för att förbereda för mer funktionalitet borde denna fkt ta in en List<Participants>
     //den borde också ta in en boolean, alternativt dela upp fkt för rowseating och groupseating i två olika
 
-    public List<List<Participant>> generateGroups(int numberOfRows, int seatsPerRow) {
+    public List<List<Participant>> generateGroups(int numberOfRows, int seatsPerRow, boolean rowSeating) {
 
         List<Participant> participants = participantRepository.findAll();
 
@@ -42,7 +42,6 @@ public class LayoutService {
         int numberOfRemainingPersonsToPlaceIntoGroups = participants.size() % numberOfRows;
         int fullGroups = participants.size() / numberOfRows;
 
-        boolean rowSeating = false;
         participants = shuffleParticipants(participants);
 
         //seating based on rowseating, filling up rows from the "front"

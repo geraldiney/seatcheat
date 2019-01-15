@@ -1,10 +1,29 @@
 .cinema{
-  
+      float: left;
+
 width: 70px;
 height: 70px;
 background-color: #1D4C9A;
 border-radius: 5%;
 
+}
+.cinema2{
+  float: left;
+
+  width: 70px;
+  height: 70px;
+  background-color: #00A69C;
+  border-radius: 5%;
+  
+  }
+
+  .cinemacontainer {
+    margin: auto;
+
+  }
+
+.rowButton {
+  align-items: center;
 }
 
 .layout{

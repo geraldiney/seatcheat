@@ -8,6 +8,7 @@ import LayoutContainer from "./layout/LayoutContainer";
 import ParticipantList from "./participant/ParticipantList";
 import RenderButton from "./seatingRender/RenderButton";
 import SeatingRender from "./seatingRender/SeatingRender";
+import ReturnButton from "./seatingRender/ReturnButton";
 
 class App extends Component {
   constructor() {
@@ -104,11 +105,19 @@ class App extends Component {
     );
 
     const displaySeats = (
-      <SeatingRender
-        seatsPerRow={this.state.seatsPerRow}
-        participants={this.state.participants}
-        fetch={this.fetchScrambledParticipantGroup}
-      />
+      <div>
+        <div className="row">
+          <SeatingRender
+            seatsPerRow={this.state.seatsPerRow}
+            participants={this.state.participants}
+            fetch={this.fetchScrambledParticipantGroup}
+          />
+        </div>
+        <div className="rowButton">
+          <ReturnButton showGroupOptions={this.showGroupOptions} />
+        </div>
+      </div>
+
     );
     let groupOptions;
     this.state.toggleGroupOptions

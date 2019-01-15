@@ -1,11 +1,15 @@
 import React, { Component } from "react";
 
+
+
 class AddParticipants extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       participants: this.props.participants,
-      newParticipantName: ""
+      newParticipantName: "",
+
     };
     this.clickHandler = this.clickHandler.bind(this);
     this.textHandler = this.textHandler.bind(this);
@@ -22,6 +26,9 @@ class AddParticipants extends Component {
   textHandler(event) {
     this.setState({ newParticipantName: event.target.value });
   }
+
+
+
 
   render() {
     return (
