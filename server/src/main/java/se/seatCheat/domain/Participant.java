@@ -2,7 +2,6 @@ package se.seatCheat.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -12,7 +11,7 @@ public class Participant implements Serializable {
     private Long id;
     private String name;
     @Enumerated(EnumType.ORDINAL) //using ordinal - writes the enum index to db (otherwise string representation)
-    private Role role;
+    private ParticipantRole participantRole;
 
     @ManyToMany(mappedBy = "participants", fetch = FetchType.EAGER)
     private Set<Grouping> groupings;
@@ -29,9 +28,9 @@ public class Participant implements Serializable {
         this.name=name;
         this.groupings=set;
     }
-    public Participant (String name, Role role){
+    public Participant (String name, ParticipantRole participantRole){
         this.name=name;
-        this.role=role;
+        this.participantRole = participantRole;
     }
 
 
@@ -47,12 +46,12 @@ public class Participant implements Serializable {
         return id;
     }
 
-    public Role getRole() {
-        return role;
+    public ParticipantRole getParticipantRole() {
+        return participantRole;
     }
 
     public void setRole(){
-        this.role=role;
+        this.participantRole = participantRole;
     }
 
     public void addGrouping(Grouping grouping) {

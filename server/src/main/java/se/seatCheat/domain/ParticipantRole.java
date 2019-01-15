@@ -1,5 +1,5 @@
 package se.seatCheat.domain;
 
-public enum Role {
+public enum ParticipantRole {
     Frontend, Backend, Tester, ProductOwner, UX, NA
 }
