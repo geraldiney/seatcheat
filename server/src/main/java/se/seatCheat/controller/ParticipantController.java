@@ -2,6 +2,7 @@ package se.seatCheat.controller;
 
 import org.springframework.web.bind.annotation.*;
 import se.seatCheat.domain.Participant;
+import se.seatCheat.domain.ParticipantRole;
 import se.seatCheat.repository.ParticipantRepository;
 import se.seatCheat.service.ParticipantService;
 
@@ -27,9 +28,12 @@ public class ParticipantController {
 
     @PostMapping("/")
     @CrossOrigin(origins = "http://localhost:3000")
-    public Participant saveNewParticipant (@RequestParam String name){
-        return participantRepository.save(new Participant(name));
+    public Participant saveNewParticipant (@RequestParam String name, @RequestParam String role){
+        ParticipantRole participantRole = ParticipantRole.valueOf(role);
+        System.out.println(participantRole);
+        return participantRepository.save(new Participant(name, participantRole));
 
     }
+
 
 }

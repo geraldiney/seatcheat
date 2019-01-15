@@ -4,14 +4,12 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import se.seatCheat.domain.Grouping;
 import se.seatCheat.domain.Participant;
+import se.seatCheat.domain.ParticipantRole;
 import se.seatCheat.repository.GroupingRepository;
 import se.seatCheat.repository.LayoutRepository;
 import se.seatCheat.repository.ParticipantRepository;
 
-import javax.servlet.http.Part;
 import java.util.HashSet;
-import java.util.Optional;
-import java.util.concurrent.Flow;
 
 @Component
 public class DatabaseLoader implements CommandLineRunner {
@@ -32,6 +30,7 @@ public class DatabaseLoader implements CommandLineRunner {
         participantRepository.save(new Participant("Patrik"));
         participantRepository.save(new Participant("Louise"));
 
+        participantRepository.save(new Participant("Nina", ParticipantRole.Frontend));
 
         Grouping testGrupp = new Grouping("grupp1");
         groupingRepository.save(testGrupp);
