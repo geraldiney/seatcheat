@@ -25,7 +25,6 @@ public class LayoutService {
 
 
     //för att förbereda för mer funktionalitet borde denna fkt ta in en List<Participants>
-    //den borde också ta in en boolean, alternativt dela upp fkt för rowseating och groupseating i två olika
 
     public List<List<Participant>> generateGroups(int numberOfRows, int seatsPerRow, boolean rowSeating) {
 
@@ -35,12 +34,8 @@ public class LayoutService {
             return null;
         }
 
-        //genererar dubbelarray utifrån layout input
-
+        //generates double array from layout input
         Participant[][] groups = new Participant[numberOfRows][seatsPerRow];
-
-        int numberOfRemainingPersonsToPlaceIntoGroups = participants.size() % numberOfRows;
-        int fullGroups = participants.size() / numberOfRows;
 
         participants = shuffleParticipants(participants);
 
@@ -67,24 +62,6 @@ public class LayoutService {
                 groups[row][seat]=participants.get(pI);
             }
         }
-
-//        for (int groupId = 0; groupId < numberOfRows; groupId++) {
-//            if (numberOfRemainingPersonsToPlaceIntoGroups > 0) {
-//                groups[groupId] = new Participant[fullGroups + 1];
-//                numberOfRemainingPersonsToPlaceIntoGroups--;
-//            } else {
-//                groups[groupId] = new Participant[fullGroups];
-//            }
-//        }
-//
-//        for (int groupId = 0, personId = 0; groupId < numberOfRows; groupId++) {
-//            int groupSize = groups[groupId].length;
-//
-//            for (int teamMember = 0; teamMember < groupSize; teamMember++, personId++) {
-//                Participant participant = participants.get(personId);
-//                groups[groupId][teamMember] = participant;
-//            }
-//        }
         return arrayToList(groups);
     }
 
@@ -107,5 +84,16 @@ public class LayoutService {
                 participantList.add(tempList);
         }
         return participantList;
+    }
+
+    public List<List<Participant>> generateGroupsBasedOnRole(int numberOfRows, int seatsPerRow, boolean rowSeating){
+
+        List<Participant> participants = participantRepository.findAll();
+
+        for (Participant participant: participants) {
+
+        }
+
+        return null;
     }
 }

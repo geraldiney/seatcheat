@@ -19,7 +19,8 @@ class App extends Component {
       scrambledParticipantGroup: [],
       numberOfRows: "",
       seatsPerRow: "",
-      currentLayoutId: ""
+      currentLayoutId: "",
+      currentGrouping:""
     };
     this.getData = this.getData.bind(this);
     this.postData = this.postData.bind(this);
@@ -30,6 +31,7 @@ class App extends Component {
     this.fetchScrambledParticipantGroup = this.fetchScrambledParticipantGroup.bind(
       this
     );
+    this.addGroup = this.addGroup.bind(this);
   }
 
   componentDidMount() {
@@ -48,6 +50,13 @@ class App extends Component {
         participants: [...prevState.participants, data]
       }));
     });
+  }
+
+  addGroup(formData){
+    this.postData("http://localhost:8080/addGroup", formData).then(data=>
+      this.setState({currentGrouping: data})
+    );
+    console.log("hej från addgroup i app.js")
   }
 
   addLayout(formData) {
@@ -93,12 +102,15 @@ class App extends Component {
             />
           </div>
           <div className="col-sm-4">
-            <RenderButton showGroupOptions={this.showGroupOptions} />
+            <RenderButton 
+              showGroupOptions={this.showGroupOptions} />
           </div>
         </div>
         <div className="row list">
           <div className="col-4 list">
-            <ParticipantList participants={this.state.participants} />
+            <ParticipantList 
+              participants={this.state.participants} 
+              addGroup={this.addGroup} />
           </div>
         </div>
       </div>
