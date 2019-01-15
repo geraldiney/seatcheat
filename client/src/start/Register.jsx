@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 const url = "http://localhost:8080/api";
 
-class Login extends Component {
+class Register extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -72,4 +72,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default Register;
