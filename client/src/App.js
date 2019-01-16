@@ -3,6 +3,7 @@ import "./css/App.css";
 import "./vendor/bootstrap/css/bootstrap.min.css";
 import "./css/scrolling-nav.css";
 import "./css/main.css";
+import "./css/icons.css";
 import ParticipantContainer from "./participant/ParticipantContainer";
 import LayoutContainer from "./layout/LayoutContainer";
 import ParticipantList from "./participant/ParticipantList";

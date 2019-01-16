@@ -1,0 +1,183 @@
+.testparent {
+  width: 300px;
+  height: 100px;
+  /* border: 2px solid black; */
+  margin: auto;
+  padding: 10px 10px;
+  display: flex;
+  justify-content: space-evenly;
+}
+.test {
+  background-color: white;
+  max-width: 25%;
+  max-height: 100%;
+  position: relative;
+  border-radius: 5px;
+  height: 75px;
+  width: 100px;
+  text-align: center;
+}
+
+.testrow {
+  background-color: rgb(0, 88, 120);
+  height: 7px;
+  margin: 6px;
+  border-radius: 10px;
+}
+.teacher {
+  background-color: rgb(0, 88, 120);
+  height: 7px;
+  margin: 7px 20px;
+  border-radius: 10px;
+}
+.testround {
+  background-color: rgb(0, 88, 120);
+  height: 20px;
+  width: 20px;
+  margin: 3px 6px;
+  border-radius: 10px;
+  border-radius: 50%;
+  display: inline-flex;
+}
+
+.head {
+  width: 25px;
+  height: 25px;
+  border: solid 2px white;
+  background-color: rgb(44, 132, 192);
+  border-radius: 50%;
+  margin: 8px auto;
+  z-index: 2;
+}
+.person {
+  width: 0;
+  height: 0;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-radius: 200%;
+  border-bottom: 50px solid rgb(44, 132, 192);
+  margin: auto;
+  position: absolute;
+  top: 16px;
+  left: 6;
+}
+
+.eye {
+  height: 30px;
+  width: 50px;
+  background-color: #f6928a;
+  border-radius: 50%;
+  margin: auto;
+  position: absolute;
+  top: 20px;
+  left: 10;
+}
+.eye-ball {
+  height: 25px;
+  width: 25px;
+  background-color: white;
+  border-radius: 50%;
+  margin: auto;
+  position: absolute;
+  top: 20px;
+  left: 25;
+}
+.eye-pupil {
+  height: 15px;
+  width: 15px;
+  background-color: #f6928a;
+  border-radius: 50%;
+  margin: auto;
+  position: absolute;
+  top: 25px;
+  left: 30;
+}
+
+.curvedarrow1 {
+  position: relative;
+  width: 0;
+  height: 0;
+  top: 25px;
+  left: 45px;
+  border-top: 9px solid transparent;
+  border-right: 9px solid #f6928a;
+  transform: rotate(35deg);
+}
+.curvedarrow1:after {
+  content: "";
+  position: absolute;
+  border: 0 solid transparent;
+  border-top: 3px solid #f6928a;
+  border-radius: 20px 0 0 0;
+  top: -12px;
+  left: -9px;
+  width: 12px;
+  height: 12px;
+  transform: rotate(45deg);
+}
+.curvedarrow2 {
+  position: relative;
+  width: 0;
+  height: 0;
+  top: 38px;
+  left: 35px;
+  border-top: 9px solid transparent;
+  border-right: 9px solid #f6928a;
+  transform: rotate(120deg);
+}
+.curvedarrow2:after {
+  content: "";
+  position: absolute;
+  border: 0 solid transparent;
+  border-top: 3px solid #f6928a;
+  border-radius: 20px 0 0 0;
+  top: -12px;
+  left: -9px;
+  width: 12px;
+  height: 12px;
+  transform: rotate(45deg);
+}
+.curvedarrow3 {
+  position: relative;
+  width: 0;
+  height: 0;
+  top: 21px;
+  left: 13px;
+  border-top: 9px solid transparent;
+  border-right: 9px solid #f6928a;
+  transform: rotate(200deg);
+}
+.curvedarrow3:after {
+  content: "";
+  position: absolute;
+  border: 0 solid transparent;
+  border-top: 3px solid #f6928a;
+  border-radius: 20px 0 0 0;
+  top: -12px;
+  left: -9px;
+  width: 12px;
+  height: 12px;
+  transform: rotate(45deg);
+}
+.curvedarrow4 {
+  position: relative;
+  width: 0;
+  height: 0;
+  top: -10px;
+  left: 23px;
+  border-top: 9px solid transparent;
+  border-right: 9px solid #f6928a;
+  transform: rotate(295deg);
+}
+.curvedarrow4:after {
+  content: "";
+  position: absolute;
+  border: 0 solid transparent;
+  border-top: 3px solid #f6928a;
+  border-radius: 20px 0 0 0;
+  top: -12px;
+  left: -9px;
+  width: 12px;
+  height: 12px;
+  transform: rotate(45deg);
+}
