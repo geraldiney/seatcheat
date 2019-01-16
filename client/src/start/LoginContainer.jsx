@@ -45,6 +45,7 @@ class LoginContainer extends Component {
   render() {
     return (
       <div>
+         <div className="spacer" ></div>
         <h5>Logga in</h5>
         <form>
           <input

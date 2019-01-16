@@ -46,6 +46,8 @@ class Register extends Component {
   render() {
     return (
       <div>
+         <div className="spacer" ></div>
+        <h5>Registrera</h5>
         <input
           type="text"
           value={this.state.numberOfRows}
