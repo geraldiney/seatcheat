@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Lato:700%7CMontserrat:900%7CRoboto:100%7CWork+Sans:600,900");
 
-.cinema {
+/* .cinema {
   float: left;
 
   width: 70px;
@@ -15,11 +15,11 @@
   height: 70px;
   background-color: #00a69c;
   border-radius: 5%;
-}
+} */
 
-.cinemacontainer {
+/* .cinemacontainer {
   margin: auto;
-}
+} */
 
 .padding {
   margin: 5%;
@@ -34,16 +34,55 @@
   align-items: center;
 }
 
-#stretch1 {
-  background-color: rgb(0, 88, 120);
+.render-container {
+background-color: rgb(0, 88, 120);
 }
-#stretch2 {
+
+/* .background-container {
+  display: flex;
+} */
+
+/* .test-box{
+  width: 80%;
+  height: 80%;
+  position: absolute;
+  top: 10%; 
+  left: 10%;
+  background-color: rgba(255, 255, 255, 0.822);
+  padding: 5%;
+  
+} */
+
+
+.box {
+  /* position: absolute;  
+  vit ruta bakom rendering */
+  /* margin: auto;
+  display: block; */
+  /* border: solid 4px red; */
+  /* margin-top: 8%; */
+  /* width: 600px;
+    height: 420px; */
+  /* 
+  border-radius: 10px; */
+  
+}
+
+.stretch1 {
+  background-color: rgb(0, 88, 120);
+  height: 100%;
+  
+}
+.stretch2 {
   background-color: rgb(44, 132, 192);
   box-shadow: -5px 0px 10px 0px rgb(13, 42, 61);
+  height: 100%;
+
 }
-#stretch3 {
+.stretch3 {
   background-color: #f6928a;
   box-shadow: -5px 0px 10px 0px rgb(29, 89, 129);
+  height: 100%;
 }
 
 input {
@@ -108,20 +147,7 @@ select option {
   font-weight: bold;
 }
 
-.box {
 
-  position: relative;
-  margin: auto;
-  display: block;
-  /* border: solid 4px red; */
-  margin-top: 8%;
-  /* width: 600px;
-    height: 420px; */
-  background-color: rgba(255, 255, 255, 0.822);
-  padding: 5%;
-  border-radius: 10px;
-  
-}
 
 .renderedTable {
   position: relative;

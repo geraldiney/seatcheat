@@ -82,20 +82,20 @@ class App extends Component {
     const displayOptions = (
       <div className="App">
         <div className="row">
-          <div className="col-lg-4 col-sm-12" id="stretch1">
+          <div className="col-lg-4 col-sm-12 stretch1" >
             <LayoutContainer
               addLayout={this.addLayout}
               setRowsAndsSeats={this.changeNumberOfRowsAndSeat}
             />
           </div>
-          <div className="col-lg-4 col-sm-12" id="stretch2">
+          <div className="col-lg-4 col-sm-12 stretch2">
             <ParticipantContainer
               participants={this.state.participants}
               addParticipant={this.addParticipant}
             />
             <ParticipantList participants={this.state.participants} />
           </div>
-          <div className="col-lg-4 col-sm-12" id="stretch3">
+          <div className="col-lg-4 col-sm-12 stretch3" >
             <RenderButton showGroupOptions={this.showGroupOptions} />
           </div>
         </div>
@@ -103,18 +103,31 @@ class App extends Component {
     );
 
     const displaySeats = (
-      <div>
-        <div className="row">
-          <SeatingRender
-            seatsPerRow={this.state.seatsPerRow}
-            participants={this.state.participants}
-            fetch={this.fetchScrambledParticipantGroup}
-          />
-        </div>
-        <div className="rowButton">
-          <ReturnButton showGroupOptions={this.showGroupOptions} />
+      <div className="render-container">
+        {/* <div className="background-container">
+          <div className="col-lg-4 stretch1" >
+          </div>
+          <div className="col-lg-4 stretch2" >
+          </div>
+          <div className="col-lg-4 stretch3" >
+          </div>
+        </div> */}
+
+          <div className="row">
+            <SeatingRender
+              seatsPerRow={this.state.seatsPerRow}
+              participants={this.state.participants}
+              fetch={this.fetchScrambledParticipantGroup}
+            />
+            <div className="rowButton">
+              <ReturnButton showGroupOptions={this.showGroupOptions} />
+            </div>
+
+        
         </div>
       </div>
+
+
     );
     let groupOptions;
     this.state.toggleGroupOptions

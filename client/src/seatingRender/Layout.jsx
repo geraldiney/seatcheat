@@ -9,19 +9,16 @@ class Layout extends Component {
 
   render() {
 
-    var boxStyle = {
-      // border: '2px dashed red', 
-      width:'80%'
-      //width: this.props.seatsPerRow*110+'px'
-    };
-    
+
+
     return (
-      <div className="box" style={boxStyle}>
-        {this.props.participants.map((rowdata, i) => (
-          <Table participants={rowdata} />
-        ))}
-        
-      </div>
+        <div className="box">
+          {this.props.participants.map((rowdata, i) => (
+            <Table participants={rowdata} />
+          ))}
+
+        </div>
+
     );
   }
 }
