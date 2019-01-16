@@ -28,7 +28,6 @@ class AddParticipants extends Component {
   }
   optionHandler(event) {
     this.setState({ newParticipantRole: event.target.value });
-    console.log(event.target.value);
   }
 
   render() {

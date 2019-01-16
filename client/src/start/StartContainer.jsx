@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import LoginContainer from "./LoginContainer";
+import Register from "./Register";
+
+
 class StartContainer extends Component {
   constructor(props) {
     super(props);
@@ -8,8 +11,17 @@ class StartContainer extends Component {
   render() {
     return (
       <div>
-        {/* <About></About> */}
-        <LoginContainer />
+        <div className="row">
+          <div className="col-lg-4 col-sm-12" id="stretch1">
+            <div className="test"></div>
+          </div>
+          <div className="col-lg-4 col-sm-12" id="stretch2">
+            <Register />
+          </div>
+          <div className="col-lg-4 col-sm-12" id="stretch3">
+            <LoginContainer />
+          </div>
+        </div>
       </div>
     );
   }
