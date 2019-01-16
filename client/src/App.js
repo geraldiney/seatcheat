@@ -8,11 +8,7 @@ import LayoutContainer from "./layout/LayoutContainer";
 import ParticipantList from "./participant/ParticipantList";
 import RenderButton from "./seatingRender/RenderButton";
 import SeatingRender from "./seatingRender/SeatingRender";
-<<<<<<< HEAD
 import ReturnButton from "./seatingRender/ReturnButton";
-=======
-import LoginContainer from "./start/LoginContainer";
->>>>>>> a user can register
 
 class App extends Component {
   constructor() {
