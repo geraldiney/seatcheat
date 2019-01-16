@@ -3,6 +3,7 @@ import LoginContainer from "./LoginContainer";
 import Register from "./Register";
 
 
+
 class StartContainer extends Component {
   constructor(props) {
     super(props);
@@ -12,13 +13,13 @@ class StartContainer extends Component {
     return (
       <div>
         <div className="row">
-          <div className="col-lg-4 col-sm-12" id="stretch1">
+          <div className="col-lg-4 col-sm-12 stretch1">
             <div className="test"></div>
           </div>
-          <div className="col-lg-4 col-sm-12" id="stretch2">
+          <div className="col-lg-4 col-sm-12 stretch2">
             <Register />
           </div>
-          <div className="col-lg-4 col-sm-12" id="stretch3">
+          <div className="col-lg-4 col-sm-12 stretch3">
             <LoginContainer />
           </div>
         </div>

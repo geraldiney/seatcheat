@@ -3,6 +3,8 @@ import "./css/App.css";
 import "./vendor/bootstrap/css/bootstrap.min.css";
 import "./css/scrolling-nav.css";
 import "./css/main.css";
+import "./css/layout.css";
+import "./css/icons.css";
 import {BrowserRouter as Router, Route} from "react-router-dom";
 import StartContainer from "./start/StartContainer";
 import Application from "./Application";

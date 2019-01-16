@@ -1,8 +1,4 @@
 import React, { Component } from "react";
-import "./css/App.css";
-import "./vendor/bootstrap/css/bootstrap.min.css";
-import "./css/scrolling-nav.css";
-import "./css/main.css";
 import ParticipantContainer from "./participant/ParticipantContainer";
 import LayoutContainer from "./layout/LayoutContainer";
 import ParticipantList from "./participant/ParticipantList";
@@ -81,20 +77,20 @@ class Application extends Component {
     const displayOptions = (
       <div className="Application">
         <div className="row">
-          <div className="col-lg-4 col-sm-12" id="stretch1">
+          <div className="col-lg-4 col-sm-12 stretch1">
             <LayoutContainer
               addLayout={this.addLayout}
               setRowsAndsSeats={this.changeNumberOfRowsAndSeat}
             />
           </div>
-          <div className="col-lg-4 col-sm-12" id="stretch2">
+          <div className="col-lg-4 col-sm-12 stretch2">
             <ParticipantContainer
               participants={this.state.participants}
               addParticipant={this.addParticipant}
             />
             <ParticipantList participants={this.state.participants} />
           </div>
-          <div className="col-lg-4 col-sm-12" id="stretch3">
+          <div className="col-lg-4 col-sm-12 stretch3">
             <RenderButton showGroupOptions={this.showGroupOptions} />
           </div>
         </div>
