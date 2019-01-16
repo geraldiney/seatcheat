@@ -25,6 +25,7 @@ class RenderButton extends Component {
           Visa placering
         </button>
       </div>
+      
     );
   }
 }

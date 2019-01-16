@@ -98,7 +98,6 @@ class App extends Component {
             <RenderButton showGroupOptions={this.showGroupOptions} />
           </div>
         </div>
-       
       </div>
     );
 
