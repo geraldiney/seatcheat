@@ -7,6 +7,12 @@ ul {
   text-align: center;
   list-style-type: none;
 }
+/* 
+.container{
+  margin: 0;
+  padding: 0;
+
+} */
 
 .scrollList{
   font-family: "Roboto", sans-serif;
