@@ -7,7 +7,7 @@ class AddParticipants extends Component {
     this.state = {
       participants: this.props.participants,
       newParticipantName: "",
-      newParticipantRole: ""
+      newParticipantRole: "NA"
     };
     this.clickHandler = this.clickHandler.bind(this);
     this.textHandler = this.textHandler.bind(this);
@@ -19,7 +19,7 @@ class AddParticipants extends Component {
     formData.append("name", this.state.newParticipantName);
     formData.append("role", this.state.newParticipantRole);
     this.props.addParticipant(formData);
-    this.setState({ newParticipantName: "", newParticipantRole: "" });
+    this.setState({ newParticipantName: "", newParticipantRole: "NA" });
     event.preventDefault();
   }
 
@@ -57,7 +57,8 @@ class AddParticipants extends Component {
           {/* <label htmlFor="hej1">Roll</label> */}
 
           <select name="role" onChange={this.optionHandler}>
-            <option value="NA">Välj roll</option>
+            <option value="NA" selected>Välj roll</option>
+            <option value="NA">Ingen roll</option>
             <option value="Frontend">Frontend</option>
             <option value="Backend">Backend</option>
             <option value="Tester">Tester</option>

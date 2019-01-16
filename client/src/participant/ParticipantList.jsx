@@ -13,7 +13,7 @@ class ParticipantList extends Component {
         <ul className="list-group list-group-flush">
           {this.props.participants.map(participant => (
             <div key={participant.id}>
-              <li>{participant.name} {participant.participantRole===null ? "":", "+participant.participantRole}</li>
+              <li>{participant.name} {(participant.participantRole==="NA"||participant.participantRole===null) ? "":", "+participant.participantRole}</li>
             </div>
           ))}
         </ul>
