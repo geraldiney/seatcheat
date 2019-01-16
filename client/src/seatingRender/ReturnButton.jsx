@@ -11,7 +11,7 @@ class ReturnButton extends Component {
 
   render() {
     return (
-      <div className="card centerCard">
+      <div className=" ">
         <button className="btn" onClick={this.props.showGroupOptions}>
           Till Huvudmeny
         </button>

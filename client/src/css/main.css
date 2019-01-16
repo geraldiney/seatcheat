@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Lato:700%7CMontserrat:900%7CRoboto:100%7CWork+Sans:600");
 
-
 .card {
   background-color: #f19784;
   box-shadow: 5px 10px rgb(70, 70, 70);
@@ -23,12 +22,11 @@ h5 {
 h1 {
   font-family: "Work Sans", sans-serif;
   color: white;
-  font-size: 13em;
+  font-size: 12em;
   /* text-shadow:-5px 0px 5px  rgba(22, 22, 22, 0.4); */
-  margin-bottom: 0%;
+  margin: 0%;
 
-
-/* ================Urklippt text======================= */ 
+  /* ================Urklippt text======================= */
   /* font: bold 200px arial, sans-serif;
   background-color: #565656;
   color: transparent;
@@ -47,7 +45,6 @@ h1 {
   justify-content: space-evenly;
 }
 
-
 .test {
   background-color: white;
   max-width: 25%;
@@ -57,32 +54,30 @@ h1 {
   height: 75px;
   width: 100px;
   text-align: center;
-  
 }
 
 .testrow {
-  background-color:rgb(0, 88, 120);
+  background-color: rgb(0, 88, 120);
   height: 7px;
   margin: 6px;
   border-radius: 10px;
 }
 .teacher {
-  background-color:rgb(0, 88, 120);
+  background-color: rgb(0, 88, 120);
   height: 7px;
   margin: 7px 20px;
   border-radius: 10px;
 }
 .testround {
-  background-color:rgb(0, 88, 120);
+  background-color: rgb(0, 88, 120);
   height: 20px;
   width: 20px;
   margin: 3px 6px;
   border-radius: 10px;
   border-radius: 50%;
   display: inline-flex;
- 
 }
-.head{
+.head {
   width: 25px;
   height: 25px;
   border: solid 2px white;
@@ -90,24 +85,46 @@ h1 {
   border-radius: 50%;
   margin: 8px auto;
   z-index: 2;
- 
 }
 .person {
-  width: 0; 
-  height: 0; 
+  width: 0;
+  height: 0;
   border-left: 30px solid transparent;
   border-right: 30px solid transparent;
   border-radius: 200%;
-  border-bottom: 50px solid  rgb(44, 132, 192);
+  border-bottom: 50px solid rgb(44, 132, 192);
   margin: auto;
   position: absolute;
   top: 16px;
   left: 6;
- 
-  
 }
 
 body {
   background-color: #c5c5c5;
   display: flex;
+}
+.scrollList {
+  max-height: 18%;
+  overflow-y: scroll;
+  margin-bottom: 10%;
+}
+
+/* width */
+.scrollList::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.scrollList::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+.scrollList::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+.scrollList::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
