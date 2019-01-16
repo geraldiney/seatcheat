@@ -39,7 +39,7 @@ public class User {
     public User() {
     }
 
-    public User(@NotNull @NotEmpty String name, @NotNull @NotEmpty String password, @NotNull @NotEmpty String email) {
+    public User(@NotNull @NotEmpty String name, @NotNull @NotEmpty String email, @NotNull @NotEmpty String password) {
         this.name = name;
         this.password = password;
         this.email = email;
