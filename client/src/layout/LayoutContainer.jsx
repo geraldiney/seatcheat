@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "../css/layout.css";
 
-
 class LayoutContainer extends Component {
   constructor(props) {
     super(props);
@@ -20,9 +19,9 @@ class LayoutContainer extends Component {
     } else if (type === "perRow") {
       this.setState({ seatsPerRow: event.target.value });
     } else if (type === "cinema") {
-      this.setState({ rowSeating: true })
+      this.setState({ rowSeating: true });
     } else if (type === "groups") {
-      this.setState({ rowSeating: false })
+      this.setState({ rowSeating: false });
     }
   }
 
@@ -34,27 +33,29 @@ class LayoutContainer extends Component {
     this.props.addLayout(formData);
   }
 
-
   render() {
     return (
-
       <div className="">
         <h1>1</h1>
-        <h5 className="">Välj layout</h5>
-
+        <h5 className="">Layout</h5>
+<section className="padding">
         <div className="testparent">
           <div className="test">
-            <div className="testrow"></div>
-            <div className="testrow"></div>
-            <div className="testrow"></div>
+            <div className="teacher" />
+            <div className="testrow" />
+            <div className="testrow" />
+            <div className="testrow" />
+            <div className="testrow" />
           </div>
           <div className="test">
-            <div className="testrow"></div>
-            <div className="testrow"></div>
-            <div className="testrow"></div>
+          <div className="teacher" />
+            <div className="testround" />
+            <div className="testround" />
+            <div className="testround" />
+            <div className="testround" />
           </div>
         </div>
-
+        </section>
         {/* <label className="radio">
             <input name="seating" type="radio" onClick={event => this.changeHandler(event, "cinema")}></input>
             Fyll ut rader
@@ -78,7 +79,9 @@ class LayoutContainer extends Component {
           onChange={event => this.changeHandler(event, "perRow")}
           placeholder="Antal platser per rad"
         />
-        <button className="btn" onClick={this.clickHandler}>Spara!</button>
+        <button className="btn" onClick={this.clickHandler}>
+          Spara
+        </button>
       </div>
     );
   }

@@ -1,122 +1,160 @@
-.cinema{
-      float: left;
+@import url("https://fonts.googleapis.com/css?family=Lato:700%7CMontserrat:900%7CRoboto:100%7CWork+Sans:600,900");
 
-width: 70px;
-height: 70px;
-background-color: #1D4C9A;
-border-radius: 5%;
-
-}
-.cinema2{
+.cinema {
   float: left;
 
   width: 70px;
   height: 70px;
-  background-color: #00A69C;
+  background-color: #1d4c9a;
   border-radius: 5%;
-  
-  }
+}
+.cinema2 {
+  float: left;
 
-  .cinemacontainer {
-    margin: auto;
+  width: 70px;
+  height: 70px;
+  background-color: #00a69c;
+  border-radius: 5%;
+}
 
-  }
+.cinemacontainer {
+  margin: auto;
+}
+
+.padding{
+  margin: 5%;
+}
 
 .rowButton {
   align-items: center;
 }
 
-.layout{
-    display: flex;
-    align-items: center;
-    
+.layout {
+  display: flex;
+  align-items: center;
 }
 
 #stretch1 {
   height: 100%;
   background-color: rgb(0, 88, 120);
-  
 }
 #stretch2 {
   height: 100%;
   background-color: rgb(44, 132, 192);
+  box-shadow: -5px 0px 10px 0px rgb(13, 42, 61);
 }
 #stretch3 {
   height: 100%;
-  background-color: rgb(246, 146, 138);
+  background-color: #f6928a;
+  box-shadow: -5px 0px 10px 0px rgb(29, 89, 129);
 }
 
-input{
-margin: 1%;
-    
+input {
+  margin: 1%;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid white;
+  padding-bottom: 2%;
+  width: 55%;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  text-align: center;
+}
+select {
+  margin: 1%;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid white;
+  padding-bottom: 2%;
+  font-family: "Roboto", sans-serif;
+  color: white;
+  width: 55%;
+  font-weight: 900;
+  text-align-last: center;
 }
 
+select option {
+  color: black;
+  font-weight: 900;
+ 
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+  opacity: 1; /* Firefox */
+  font-family: "Roboto", sans-serif;
+}
 .btn {
-    width: 100%;
+  background-color: white;
+  display: block;
+  margin: 5% auto;
+  color: inherit;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
 }
 
 .box {
-    position: relative;
-    margin: auto;
-    display: block;
-    /* border: solid 4px red; */
-    margin-top: 8%;
-    /* width: 600px;
+  position: relative;
+  margin: auto;
+  display: block;
+  /* border: solid 4px red; */
+  margin-top: 8%;
+  /* width: 600px;
     height: 420px; */
-    background-color: rgba(255, 255, 255, 0.822);
-    padding: 5%;
-    border-radius: 10px;
-  }
-  
-  .renderedTable {
-    position: relative;
-    width: 100%;
-    height: 5%;
-    background: #a6becf;
-    border-radius: 10px;
-    z-index: 1;
-    box-shadow: 5px 5px 5px rgb(70, 70, 70)
-  }
-  
-  #chair-container {
-    /* border: 2px dashed #444;  */
-    height: 7%;
-    width: 100%;
-    position: relative;
-    top:-10px;
-    text-align: justify;
-    justify-content: space-around;
-    display: flex;
-    -ms-text-justify: distribute-all-lines;
-    text-justify: distribute-all-lines;
-  
-  }
-  
-  .chair {
-    color:white;
-    /* max-width: 100px; */
-    min-width: 50px;
-    height: 80%;
-    border-radius: 10%;
-    background: #1D4C9A;
-    vertical-align: top;
-    display: inline-block;
-    *display: inline;
-    margin: 3%;
-    z-index: -1;
-    text-align: center;
-  }
+  background-color: rgba(255, 255, 255, 0.822);
+  padding: 5%;
+  border-radius: 10px;
+}
 
-  .stretch {
-    width: 100%;
-    display: inline-block;
-    font-size: 0;
-    line-height: 0;
-  }
-  .chair p{
-      text-align: center;
-      position: absolute;
-      bottom:0;
-      margin:2% auto;
-  }
-  
+.renderedTable {
+  position: relative;
+  width: 100%;
+  height: 5%;
+  background: #a6becf;
+  border-radius: 10px;
+  z-index: 1;
+  box-shadow: 5px 5px 5px rgb(70, 70, 70);
+}
+
+#chair-container {
+  /* border: 2px dashed #444;  */
+  height: 7%;
+  width: 100%;
+  position: relative;
+  top: -10px;
+  text-align: justify;
+  justify-content: space-around;
+  display: flex;
+  -ms-text-justify: distribute-all-lines;
+  text-justify: distribute-all-lines;
+}
+
+.chair {
+  color: white;
+  /* max-width: 100px; */
+  min-width: 50px;
+  height: 80%;
+  border-radius: 10%;
+  background: #1d4c9a;
+  vertical-align: top;
+  display: inline-block;
+  *display: inline;
+  margin: 3%;
+  z-index: -1;
+  text-align: center;
+}
+
+.stretch {
+  width: 100%;
+  display: inline-block;
+  font-size: 0;
+  line-height: 0;
+}
+.chair p {
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  margin: 2% auto;
+}

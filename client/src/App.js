@@ -92,18 +92,14 @@ class App extends Component {
               participants={this.state.participants}
               addParticipant={this.addParticipant}
             />
+            <ParticipantList participants={this.state.participants} />
           </div>
           <div className="col-lg-4 col-sm-12" id="stretch3">
             <RenderButton showGroupOptions={this.showGroupOptions} />
           </div>
         </div>
-        <div className="row list">
-          <div className="col-4 list">
-            <ParticipantList participants={this.state.participants} />
-          </div>
-        </div>
+       
       </div>
-
     );
 
     const displaySeats = (
@@ -119,7 +115,6 @@ class App extends Component {
           <ReturnButton showGroupOptions={this.showGroupOptions} />
         </div>
       </div>
-
     );
     let groupOptions;
     this.state.toggleGroupOptions
