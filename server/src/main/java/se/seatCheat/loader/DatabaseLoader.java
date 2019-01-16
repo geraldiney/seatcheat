@@ -1,6 +1,7 @@
 package se.seatCheat.loader;
 
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Component;
 import se.seatCheat.domain.Grouping;
 import se.seatCheat.domain.Participant;
@@ -12,19 +13,18 @@ import se.seatCheat.domain.Role;
 import se.seatCheat.domain.User;
 import se.seatCheat.repository.*;
 
+import javax.servlet.http.Part;
 import java.util.HashSet;
 
 @Component
 public class DatabaseLoader implements CommandLineRunner {
     private final ParticipantRepository participantRepository;
-    private final LayoutRepository layoutRepository;
     private final GroupingRepository groupingRepository;
     private final RoleRepository roleRepository;
     private final UserRepository userRepository;
 
-    public DatabaseLoader(ParticipantRepository participantRepository, LayoutRepository layoutRepository, GroupingRepository groupingRepository, RoleRepository roleRepository, UserRepository userRepository) {
+    public DatabaseLoader(ParticipantRepository participantRepository, GroupingRepository groupingRepository, RoleRepository roleRepository, UserRepository userRepository) {
         this.participantRepository = participantRepository;
-        this.layoutRepository = layoutRepository;
         this.groupingRepository = groupingRepository;
         this.roleRepository = roleRepository;
         this.userRepository = userRepository;
@@ -33,37 +33,47 @@ public class DatabaseLoader implements CommandLineRunner {
     @Override
     public void run (String... strings) throws Exception{
 
+        System.out.println("Loading DBLoader...");
+
         roleRepository.save(new Role("ROLE_USER"));
-
-        participantRepository.save(new Participant("Gerry"));
-        participantRepository.save(new Participant("Patrik"));
-        participantRepository.save(new Participant("Louise"));
-        participantRepository.save(new Participant("Nina", ParticipantRole.Frontend));
-
         userRepository.save(new User("Andreas", "password", "andreas@academy" )
-        .addRole(roleRepository.findByName("ROLE_USER").get()));
+                .addRole(roleRepository.findByName("ROLE_USER").get()));
 
-        Grouping testGrupp = new Grouping("C# HT18");
-        groupingRepository.save(testGrupp);
+        //participantRepository.save(new Participant("Gerry", ParticipantRole.Backend));
 
-//FUNGERAR för att ladda in pa och pb och grupp a
-        Participant pA = new Participant("Nina");
-        Participant pB = new Participant("Lina");
+//        Grouping testGrupp = new Grouping("C# HT18");
+//        groupingRepository.save(testGrupp);
+
+
+        Participant p1 = new Participant("Nina", ParticipantRole.Frontend);
+        Participant p2 = new Participant("Lina", ParticipantRole.Frontend);
+        Participant p3 = new Participant("Louise", ParticipantRole.Frontend);
+        Participant p4 = new Participant("Patrik", ParticipantRole.Backend);
+        Participant p5 = new Participant("Geraldine", ParticipantRole.Backend);
+        Participant p6 = new Participant("William", ParticipantRole.Backend);
+        Participant p7 = new Participant("Daniela", ParticipantRole.Frontend);
+        Participant p8 = new Participant("Therese", ParticipantRole.Backend);
 
         groupingRepository.save(new Grouping("Java HT18", new HashSet<Participant>(){{
-                add(pA);
-                add(pB);
+                add(p1);
+                add(p2);
+                add(p3);
+                add(p4);
+                add(p5);
+                add(p6);
+                add(p7);
+                add(p8);
             }}));
 
-//        // save a couple of publishers
-//        Grouping gA = new Grouping("GA");
-//        Grouping gB = new Grouping("GB");
-//
-//        participantRepository.save(new Participant("PA", new HashSet<Grouping>() {{
+
+
+        //detta block skapar Katt men inte katter
+//        Grouping gA = new Grouping("Katter");
+//        participantRepository.save(new Participant("Katt", new HashSet<Grouping>() {{
 //                add(gA);
-//                add(gB);
 //            }}));
 
+        System.out.println("DBLoader loaded.");
 
 
     }

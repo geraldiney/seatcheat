@@ -40,19 +40,11 @@ public class LayoutController {
 //    }
 
 
-    @GetMapping("/api/generate-groups")
-    @CrossOrigin(origins = "http://localhost:3000")
-    public List <List<Participant>>  generateGroups (){
-
-        return layoutService.generateGroups(3, 2, true);
-    }
-
     @PostMapping ("/api/generate-groups")
     @CrossOrigin(origins = "http://localhost:3000")
     public List <List<Participant>> generateGroups(@RequestParam Long id){
-        Layout layout= layoutRepository.findById(id).get();
-        return layoutService.generateGroups(layout.getNumberOfRows(),layout.getSeatsPerRow(), layout.isRowSeating());
+//        return layoutService.useAllParticipants(id);
+        return layoutService.sortParticipants(id);
     }
-
 
 }
