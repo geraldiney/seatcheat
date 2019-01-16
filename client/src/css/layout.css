@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Lato:700%7CMontserrat:900%7CRoboto:100%7CWork+Sans:600,900");
 
-.cinema {
+/* .cinema {
   float: left;
 
   width: 70px;
@@ -15,13 +15,13 @@
   height: 70px;
   background-color: #00a69c;
   border-radius: 5%;
-}
+} */
 
-.cinemacontainer {
+/* .cinemacontainer {
   margin: auto;
-}
+} */
 
-.padding{
+.padding {
   margin: 5%;
 }
 
@@ -34,19 +34,55 @@
   align-items: center;
 }
 
-#stretch1 {
-  
-  background-color: rgb(0, 88, 120);
+.render-container {
+background-color: rgb(0, 88, 120);
 }
-#stretch2 {
- 
+
+/* .background-container {
+  display: flex;
+} */
+
+/* .test-box{
+  width: 80%;
+  height: 80%;
+  position: absolute;
+  top: 10%; 
+  left: 10%;
+  background-color: rgba(255, 255, 255, 0.822);
+  padding: 5%;
+  
+} */
+
+
+.box {
+  /* position: absolute;  
+  vit ruta bakom rendering */
+  /* margin: auto;
+  display: block; */
+  /* border: solid 4px red; */
+  /* margin-top: 8%; */
+  /* width: 600px;
+    height: 420px; */
+  /* 
+  border-radius: 10px; */
+  
+}
+
+.stretch1 {
+  background-color: rgb(0, 88, 120);
+  height: 100%;
+  
+}
+.stretch2 {
   background-color: rgb(44, 132, 192);
   box-shadow: -5px 0px 10px 0px rgb(13, 42, 61);
+  height: 100%;
+
 }
-#stretch3 {
-  
+.stretch3 {
   background-color: #f6928a;
   box-shadow: -5px 0px 10px 0px rgb(29, 89, 129);
+  height: 100%;
 }
 
 input {
@@ -60,6 +96,23 @@ input {
   font-family: "Roboto", sans-serif;
   font-weight: 900;
   text-align: center;
+}
+
+.seating-info-box {
+  text-align: center;
+}
+
+.seating-info {
+  margin: 1%;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid white;
+  padding-bottom: 2%;
+  width: 55%;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  display: inline-block;
 }
 select {
   margin: 1%;
@@ -77,7 +130,6 @@ select {
 select option {
   color: black;
   font-weight: 900;
- 
 }
 
 ::placeholder {
@@ -95,27 +147,18 @@ select option {
   font-weight: bold;
 }
 
-.box {
-  position: relative;
-  margin: auto;
-  display: block;
-  /* border: solid 4px red; */
-  margin-top: 8%;
-  /* width: 600px;
-    height: 420px; */
-  background-color: rgba(255, 255, 255, 0.822);
-  padding: 5%;
-  border-radius: 10px;
-}
+
 
 .renderedTable {
   position: relative;
   width: 100%;
   height: 5%;
-  background: #a6becf;
+  background-color: #c5c5c5;
+  border: solid 1px black;
   border-radius: 10px;
   z-index: 1;
   box-shadow: 5px 5px 5px rgb(70, 70, 70);
+  
 }
 
 #chair-container {
@@ -123,27 +166,31 @@ select option {
   height: 7%;
   width: 100%;
   position: relative;
-  top: -10px;
   text-align: justify;
   justify-content: space-around;
   display: flex;
   -ms-text-justify: distribute-all-lines;
   text-justify: distribute-all-lines;
+  padding-bottom: 10px;
 }
 
 .chair {
   color: white;
   /* max-width: 100px; */
   min-width: 50px;
-  height: 80%;
+  max-width: 50px;
+  height: 100%;
   border-radius: 10%;
-  background: #1d4c9a;
+  background: rgb(44, 132, 192);
   vertical-align: top;
-  display: inline-block;
-  *display: inline;
+  /* display: inline-block;
+  *display: inline; */
+  display:flex;
   margin: 3%;
   z-index: -1;
   text-align: center;
+  border: solid 1px black;
+
 }
 
 .stretch {

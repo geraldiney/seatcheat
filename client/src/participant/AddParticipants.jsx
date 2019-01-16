@@ -39,14 +39,12 @@ class AddParticipants extends Component {
             <div className="test">
               <div className="person" />
               <div className="head" />
-            </div><div className="test">
-            <div className="person" />
-            <div className="head" />
+            </div>
+            <div className="test">
+              <div className="person" />
+              <div className="head" />
             </div>
           </div>
-         
-          
-          
         </section>
 
         <form>
@@ -57,7 +55,7 @@ class AddParticipants extends Component {
             onChange={this.textHandler}
           />
           {/* <label htmlFor="hej1">Roll</label> */}
-          
+
           <select name="role" onChange={this.optionHandler}>
             <option value="NA">Välj roll</option>
             <option value="Frontend">Frontend</option>
@@ -65,6 +63,11 @@ class AddParticipants extends Component {
             <option value="Tester">Tester</option>
             <option value="ProductOwner">Product owner</option>
             <option value="UX">UX</option>
+          </select>
+          <select name="savedclass" onChange={this.optionHandler}>
+            <option value="">Välj sparad klass</option>
+            <option value="">Java HT18</option>
+            <option value="">Java VT18</option>
           </select>
           <button className="btn" onClick={this.clickHandler}>
             Lägg till
