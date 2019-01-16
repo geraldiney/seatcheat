@@ -4,6 +4,8 @@ import org.springframework.web.bind.annotation.*;
 import se.seatCheat.domain.Layout;
 import se.seatCheat.domain.Participant;
 import se.seatCheat.repository.LayoutRepository;
+import se.seatCheat.security.CurrentUser;
+import se.seatCheat.security.UserPrincipal;
 import se.seatCheat.service.LayoutService;
 
 import java.util.List;
@@ -27,6 +29,9 @@ public class LayoutController {
 
     @PostMapping("/api/addLayout")
     @CrossOrigin(origins = "http://localhost:3000")
+    public Layout saveNewLayout(@CurrentUser UserPrincipal currentUser) {
+        currentUser.getId()
+    }
     public Layout saveNewLayout (@RequestParam int numberOfRows,@RequestParam int seatsPerRow){
         return layoutRepository.save(new Layout(numberOfRows, seatsPerRow));
     }
