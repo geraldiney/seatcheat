@@ -44,7 +44,7 @@ public class LayoutController {
     @CrossOrigin(origins = "http://localhost:3000")
     public List <List<Participant>> generateGroups(@RequestParam Long id){
 //        return layoutService.useAllParticipants(id);
-        return layoutService.sortParticipants(id);
+        return layoutService.generateSeating(id);
     }
 
 }
