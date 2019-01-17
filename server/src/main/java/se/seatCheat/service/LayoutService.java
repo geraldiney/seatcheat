@@ -8,10 +8,7 @@ import se.seatCheat.repository.LayoutRepository;
 import se.seatCheat.repository.ParticipantRepository;
 
 import javax.servlet.http.Part;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class LayoutService {
@@ -24,14 +21,19 @@ public class LayoutService {
         this.layoutRepository = layoutRepository;
     }
 
-    public List<List<Participant>> generateSeating(Long id) {
+    public List<List<Participant>> generateSeating(Long id, int[] participantsFromGrouping) {
+
+        //creates list of participant from ids from client
+        List<Participant> participants = new ArrayList<>();
+        for(int pId:participantsFromGrouping){
+            Long lId= Long.valueOf(pId);
+            participants.add(participantRepository.findById(lId).get());
+        }
+
         Layout layout= layoutRepository.findById(id).get();
         int numberOfRows= layout.getNumberOfRows();
         int seatsPerRow = layout.getSeatsPerRow();
         boolean rowSeating = layout.isRowSeating();
-
-        //denna ska tas in från frontent
-        List<Participant> participants = participantRepository.findAll();
 
         //genererar dubbelarray utifrån layout input
         Participant[][] groups = new Participant[numberOfRows][seatsPerRow];

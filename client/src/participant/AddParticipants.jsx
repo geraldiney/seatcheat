@@ -7,11 +7,13 @@ class AddParticipants extends Component {
     this.state = {
       participants: this.props.participants,
       newParticipantName: "",
-      newParticipantRole: "NA"
+      newParticipantRole: "NA",
+      savedGroup: ""
     };
     this.clickHandler = this.clickHandler.bind(this);
     this.textHandler = this.textHandler.bind(this);
     this.optionHandler = this.optionHandler.bind(this);
+    this.optionHandler2 = this.optionHandler2.bind(this);
   }
 
   clickHandler(event) {
@@ -28,6 +30,9 @@ class AddParticipants extends Component {
   }
   optionHandler(event) {
     this.setState({ newParticipantRole: event.target.value });
+  }
+  optionHandler2(event){
+    this.props.fetchGroup(event.target.value);
   }
 
   render() {
@@ -57,7 +62,7 @@ class AddParticipants extends Component {
           {/* <label htmlFor="hej1">Roll</label> */}
 
           <select name="role" onChange={this.optionHandler}>
-            <option value="NA" selected>Välj roll</option>
+            <option value="NA">Välj roll</option>
             <option value="NA">Ingen roll</option>
             <option value="Frontend">Frontend</option>
             <option value="Backend">Backend</option>
@@ -65,9 +70,9 @@ class AddParticipants extends Component {
             <option value="ProductOwner">Product owner</option>
             <option value="UX">UX</option>
           </select>
-          <select name="savedclass" onChange={this.optionHandler}>
+          <select name="savedGroup" onChange={this.optionHandler2}>
             <option value="">Välj sparad klass</option>
-            <option value="">Java HT18</option>
+            <option value="3">Java HT18</option>
             <option value="">Java VT18</option>
           </select>
           <button className="btn" onClick={this.clickHandler}>

@@ -16,7 +16,9 @@ class Application extends Component {
       scrambledParticipantGroup: [],
       numberOfRows: "",
       seatsPerRow: "",
-      currentLayoutId: ""
+      currentLayoutId: "",
+      currentGroup: "4",
+      toggle: false,
     };
     this.getData = this.getData.bind(this);
     this.postData = this.postData.bind(this);
@@ -26,10 +28,12 @@ class Application extends Component {
     this.showGroupOptions = this.showGroupOptions.bind(this);
     this.fetchScrambledParticipantGroup = this.fetchScrambledParticipantGroup.bind(this);
     this.addGroup = this.addGroup.bind(this);
+    this.fetchGroup = this.fetchGroup.bind(this);
   }
 
   componentDidMount() {
-    this.fetchParticipant();
+    // this.fetchParticipant();
+    // this.fetchGroup();
   }
 
   fetchParticipant() {
@@ -38,12 +42,23 @@ class Application extends Component {
     );
   }
 
+  fetchGroup(id) {
+
+    console.log("hej från fetchGroup(id) i application"+id)
+    let formData = new FormData();
+    formData.append("id", id);
+    this.postData("http://localhost:8080/api/get-group", formData).then(data=>
+      this.setState({participants: data})
+    )
+    .then(this.setState({toggle: true}));
+  }
+
   addParticipant(formData) {
     this.postData("http://localhost:8080/", formData).then(data => {
       this.setState(prevState => ({
         participants: [...prevState.participants, data]
       }));
-    });
+    }).then(this.setState({toggle: true}));
   }
 
   addGroup(formData){
@@ -63,6 +78,9 @@ class Application extends Component {
   fetchScrambledParticipantGroup() {
     let formData = new FormData();
     formData.append("id", this.state.currentLayoutId);
+    this.state.participants.forEach((item)=>{
+      formData.append("participants", item.id);
+    });
     return this.postData("http://localhost:8080/api/generate-groups", formData);
   }
 
@@ -95,8 +113,9 @@ class Application extends Component {
             <ParticipantContainer
               participants={this.state.participants}
               addParticipant={this.addParticipant}
+              fetchGroup={this.fetchGroup}
             />
-            <ParticipantList participants={this.state.participants} />
+           { this.state.toggle ? <ParticipantList participants={this.state.participants} />:""}
           </div>
           <div className="col-lg-4 col-sm-12 stretch3">
             <RenderButton showGroupOptions={this.showGroupOptions} />

@@ -19,6 +19,7 @@ class SaveGroup extends Component {
     });
     this.props.addGroup(formData);
     this.setState({ newGroupName: ""});
+    //verify group is saved
 
   }
 

@@ -90,10 +90,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin().loginPage("/")
                 .loginProcessingUrl("api/auth/signin")
                 .defaultSuccessUrl("/application",true)
-                .failureUrl("/index.html?error=true");
+                .failureUrl("/index.html?error=true")
                 //testar inloggning
-//                .and()
-//                .headers().frameOptions().sameOrigin();
+                .and()
+                .headers().frameOptions().sameOrigin();
 
 
         // Add our custom JWT security filter
