@@ -4,7 +4,6 @@ import LayoutContainer from "./layout/LayoutContainer";
 import ParticipantList from "./participant/ParticipantList";
 import RenderButton from "./seatingRender/RenderButton";
 import SeatingRender from "./seatingRender/SeatingRender";
-import ReturnButton from "./seatingRender/ReturnButton";
 import SaveGroup from "./seatingRender/SaveGroup";
 
 class Application extends Component {
@@ -46,7 +45,7 @@ class Application extends Component {
     });
   }
 
-  addGroup(formData){
+  addGroup(formData) {
     this.postData("http://localhost:8080/api/addGroup", formData).then(data => {
       this.setState(prevState => ({
         participants: [...prevState.participants, data]
@@ -107,22 +106,20 @@ class Application extends Component {
 
     const displaySeats = (
       <div className="relativeContainer render-background-blue">
-      <div className="relativeContainer render-background-lightblue">
-       <div className="relativeContainer row renderseats">
-          <SeatingRender
-            seatsPerRow={this.state.seatsPerRow}
-            participants={this.state.participants}
-            fetch={this.fetchScrambledParticipantGroup}
-          />
+        <div className="relativeContainer render-background-lightblue">
+          <div className="relativeContainer row renderseats">
+            <SeatingRender
+              seatsPerRow={this.state.seatsPerRow}
+              participants={this.state.participants}
+              fetch={this.fetchScrambledParticipantGroup}
+            />
+          </div>
+          <div className="rowButton">
+            <SaveGroup participants={this.state.participants} addGroup={this.addGroup} showGroupOptions={this.showGroupOptions}/>
+          </div>
         </div>
-        <div className="rowButton">
-          <ReturnButton showGroupOptions={this.showGroupOptions} />
-          <SaveGroup participants={this.state.participants} addGroup={this.addGroup} />
-        </div>
-        </div>
-       
-        </div>
-        
+      </div>
+
 
     );
     let groupOptions;

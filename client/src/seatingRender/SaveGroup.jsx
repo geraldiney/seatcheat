@@ -4,7 +4,8 @@ import React, { Component } from "react";
 class SaveGroup extends Component {
   constructor(props) {
     super(props);
-    this.state = {newGroupName: ""
+    this.state = {
+      newGroupName: ""
     };
     this.textHandler = this.textHandler.bind(this);
     this.clickHandler = this.clickHandler.bind(this);
@@ -14,11 +15,11 @@ class SaveGroup extends Component {
     event.preventDefault();
     let formData = new FormData();
     formData.append("name", this.state.newGroupName);
-    this.props.participants.forEach((item)=>{
+    this.props.participants.forEach((item) => {
       formData.append("participants", item.id);
     });
     this.props.addGroup(formData);
-    this.setState({ newGroupName: ""});
+    this.setState({ newGroupName: "" });
 
   }
 
@@ -29,18 +30,26 @@ class SaveGroup extends Component {
   render() {
     return (
       <div className="SaveGroup">
-        <h6 className="card-title">Spara grupp</h6>
+        <h6 className="card-title">Spara grupp?</h6>
         <form>
-          <input
+          <input 
+            className ="input-save-group"
             type="textarea"
             placeholder="Ange gruppnamn"
             value={this.state.newGroupName}
             onChange={this.textHandler}
           />
-          <button className="btn" onClick={this.clickHandler}>Spara grupp</button>
+          <div className="layout">
+            {/* KNAPP TILL HUVUDMENY */}
+            <button className="btn" onClick={this.props.showGroupOptions}> Till huvudmeny</button>
+
+            {/* KNAPP FÖR ATT SPARA GRUPP */}
+            <button className="btn" onClick={this.clickHandler}>Spara grupp</button>
+          </div>
+
         </form>
       </div>
-    
+
     );
   }
 }

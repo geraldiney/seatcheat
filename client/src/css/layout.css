@@ -220,3 +220,12 @@ select option {
   margin-left: 2%;
   z-index: 1;
 }
+
+.savegroup {
+  padding-top: 10%;
+}
+
+.input-save-group {
+  width: 20%;
+  border: 0;
+}

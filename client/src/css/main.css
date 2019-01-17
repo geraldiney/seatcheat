@@ -62,9 +62,9 @@ body {
   display: flex;
 }
 .scrollList {
-  max-height: 18%;
+  max-height: 16%;
   overflow-y: scroll;
-  margin-bottom: 10%;
+  margin-bottom: 0;
 }
 
 /* width */
