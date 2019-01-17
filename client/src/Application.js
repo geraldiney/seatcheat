@@ -119,6 +119,9 @@ class Application extends Component {
           <SaveGroup participants={this.state.participants} addGroup={this.addGroup} />
         </div>
       </div>
+
+
+
     );
     let groupOptions;
     this.state.toggleGroupOptions

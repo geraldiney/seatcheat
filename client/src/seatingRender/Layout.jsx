@@ -9,6 +9,8 @@ class Layout extends Component {
 
 
     return (
+
+      
       <div className="box">
         {this.props.participants.map((rowdata, i) => (
           <div key={i}>
