@@ -195,6 +195,15 @@ select option {
   /* padding: 5px; */
 }
 
+<<<<<<< HEAD
+=======
+.layout-box {
+  width: 100%;
+  height: 20%;
+  /* display: flex; */
+}
+
+>>>>>>> 5a77a9839fa3b483cfaaa4b66c14e01cdb74926b
 .stretch {
   width: 100%;
   display: inline-block;
