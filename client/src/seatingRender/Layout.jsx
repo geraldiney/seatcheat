@@ -7,6 +7,10 @@ class Layout extends Component {
     return (
       <div>
         <div className="teacher-lg" />
+        <div>
+          <p className="response">Lärare</p>
+        </div>
+        <div className="teacher-user" />
 
         <div className="box">
           {this.props.participants.map((rowdata, i) => (
