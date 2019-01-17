@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Logga from "../img/Loggalogga.png";
 
 class RenderButton extends Component {
   constructor(props) {
@@ -23,10 +24,11 @@ class RenderButton extends Component {
               <div className="curvedarrow4" />
             </div>
 
-            <div className="test">
-              <div className="eye" />
+            <div className="test-logo">
+            <img className="test-logo-bild" src={Logga}></img>
+              {/* <div className="eye" />
               <div className="eye-ball" />
-              <div className="eye-pupil" />
+              <div className="eye-pupil" /> */}
             </div>
           </div>
         </section>

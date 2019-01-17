@@ -106,8 +106,9 @@ class Application extends Component {
     );
 
     const displaySeats = (
-      <div>
-        <div className="row">
+      <div className="relativeContainer render-background-blue">
+      <div className="relativeContainer render-background-lightblue">
+       <div className="relativeContainer row renderseats">
           <SeatingRender
             seatsPerRow={this.state.seatsPerRow}
             participants={this.state.participants}
@@ -118,9 +119,10 @@ class Application extends Component {
           <ReturnButton showGroupOptions={this.showGroupOptions} />
           <SaveGroup participants={this.state.participants} addGroup={this.addGroup} />
         </div>
-      </div>
-
-
+        </div>
+       
+        </div>
+        
 
     );
     let groupOptions;

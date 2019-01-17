@@ -55,10 +55,11 @@ background-color: rgb(0, 88, 120);
 
 
 .box {
+  width: 150%;
   /* position: absolute;  
   vit ruta bakom rendering */
-  /* margin: auto;
-  display: block; */
+   margin-left: -25%;
+  /* display: block; */ 
   /* border: solid 4px red; */
   /* margin-top: 8%; */
   /* width: 600px;
@@ -157,12 +158,12 @@ select option {
   position: relative;
   width: 100%;
   height: 5%;
-  background-color: #c5c5c5;
-  border: solid 1px black;
-  border-radius: 10px;
+  background-color: rgb(0, 88, 120);
+  /* border: solid 1px black; */
+  border-radius: 4px;
   z-index: 1;
   box-shadow: 5px 5px 5px rgb(70, 70, 70);
-  
+  overflow:auto;
 }
 
 #chair-container {
@@ -171,31 +172,37 @@ select option {
   width: 100%;
   position: relative;
   text-align: justify;
+  text-align: center;
   justify-content: space-around;
   display: flex;
   -ms-text-justify: distribute-all-lines;
   text-justify: distribute-all-lines;
   padding-bottom: 10px;
+  margin-right: 50px;
 }
 
 .chair {
+
   color: white;
   /* max-width: 100px; */
   min-width: 50px;
   max-width: 50px;
   height: 100%;
-  border-radius: 10%;
+  border-radius:40%;
   background: rgb(44, 132, 192);
   vertical-align: top;
   /* display: inline-block;
   *display: inline; */
   display:flex;
-  margin: 3%;
+  margin:3%;
+  margin-top: -40%;
   z-index: -1;
   text-align: center;
-  border: solid 1px black;
-
+  border: solid 3px white;
+  /* padding: 5px; */
 }
+
+
 
 .stretch {
   width: 100%;
@@ -204,8 +211,12 @@ select option {
   line-height: 0;
 }
 .chair p {
-  text-align: center;
-  position: absolute;
-  bottom: 0;
-  margin: 2% auto;
+  display: inline-block;
+  width: 100%;
+  /* text-align: center; */
+  /* position: absolute; */
+  top: -0%;
+  /* margin: 2% auto; */
+  margin-left: 2%;
+  z-index: 1;
 }
