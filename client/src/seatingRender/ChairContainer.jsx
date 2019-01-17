@@ -12,11 +12,12 @@ class ChairContainer extends Component {
         return (
 
             <div id="chair-container">
-            {this.props.participants.map(participant => (
+            {this.props.participants.map((participant, i) => (
+                <div key={i}>
               <span>
                   {participant===null ?<Chair name=""></Chair> : <Chair name={participant.name}></Chair>}
                 
-              </span>
+              </span></div>
             ))}
             </div>
 

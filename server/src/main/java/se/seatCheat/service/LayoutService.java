@@ -116,9 +116,6 @@ public class LayoutService {
         return participants;
     }
 
-
-
-
     public List<List<Participant>> arrayToList(Participant[][] arrays) {
         List<List<Participant>> participantList = new ArrayList<>();
         for (Participant[] array : arrays) {
@@ -143,5 +140,5 @@ public class LayoutService {
     public List<Participant> shuffleParticipants(List<Participant> participants) {
         Collections.shuffle(participants);
         return participants;
-    }
+        }
 }

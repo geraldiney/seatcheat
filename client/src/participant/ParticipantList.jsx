@@ -1,10 +1,6 @@
 import React, { Component } from "react";
 
 class ParticipantList extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
 
   render() {
     return (
@@ -17,6 +13,7 @@ class ParticipantList extends Component {
             </div>
           ))}
         </ul>
+        
       </div>
     );
   }

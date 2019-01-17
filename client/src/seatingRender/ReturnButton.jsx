@@ -13,7 +13,7 @@ class ReturnButton extends Component {
     return (
       <div className=" ">
         <button className="btn" onClick={this.props.showGroupOptions}>
-          Till Huvudmeny
+          Till huvudmeny
         </button>
       </div>
     
