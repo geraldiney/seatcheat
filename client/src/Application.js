@@ -46,12 +46,7 @@ class Application extends Component {
 
     console.log("hej från fetchGroup(id) i application"+id)
     let formData = new FormData();
-    // formData.append("id", this.state.currentGroup);
     formData.append("id", id);
-
-    // this.state.participants.forEach((item)=>{
-    //   formData.append("participants", item.id);
-    // });
     this.postData("http://localhost:8080/api/get-group", formData).then(data=>
       this.setState({participants: data})
     )
@@ -63,7 +58,7 @@ class Application extends Component {
       this.setState(prevState => ({
         participants: [...prevState.participants, data]
       }));
-    });
+    }).then(this.setState({toggle: true}));
   }
 
   addGroup(formData){
