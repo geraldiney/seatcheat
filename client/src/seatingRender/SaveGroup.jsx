@@ -4,9 +4,10 @@ import React, { Component } from "react";
 class SaveGroup extends Component {
   constructor(props) {
     super(props);
-    this.state = {newGroupName: "",
-    success: false,
-    message: ""
+    this.state = {
+      newGroupName: "",
+      success: false,
+      message: ""
     };
     this.textHandler = this.textHandler.bind(this);
     this.clickHandler = this.clickHandler.bind(this);
@@ -20,7 +21,7 @@ class SaveGroup extends Component {
       formData.append("participants", item.id);
     });
     this.props.addGroup(formData);
-    this.setState({ newGroupName: ""});
+    this.setState({ newGroupName: "" });
     this.setState({
       message: "Din grupp är sparad."
     })
@@ -35,25 +36,28 @@ class SaveGroup extends Component {
       <div className="SaveGroup">
         <h6 className="card-title">Spara grupp?</h6>
         <form>
-          <input 
-            className ="input-save-group"
+          <input
+            className="input-save-group"
             type="textarea"
             placeholder="Ange gruppnamn"
             value={this.state.newGroupName}
             onChange={this.textHandler}
           />
           <div className="layout">
-            {/* KNAPP TILL HUVUDMENY */}
-            <button className="btn" onClick={this.props.showGroupOptions}> Till huvudmeny</button>
+            <div className="layout-box">
+              <button className="btn" onClick={this.props.showGroupOptions}> Till huvudmeny</button>
+            </div>
+            <div className="layout-box">
+              <button className="btn" onClick={this.clickHandler}>Spara grupp</button>
+              <p className="response">{this.state.message}</p>
 
-            {/* KNAPP FÖR ATT SPARA GRUPP */}
-            <button className="btn" onClick={this.clickHandler}>Spara grupp</button> 
-             <p className="response">{this.state.message}</p>
+            </div>
+
 
           </div>
 
         </form>
-        
+
       </div>
 
     );

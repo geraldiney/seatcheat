@@ -202,7 +202,11 @@ select option {
   /* padding: 5px; */
 }
 
-
+.layout-box {
+  width: 100%;
+  height: 20%;
+  /* display: flex; */
+}
 
 .stretch {
   width: 100%;
