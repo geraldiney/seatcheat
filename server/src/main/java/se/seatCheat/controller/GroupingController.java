@@ -20,17 +20,14 @@ public class GroupingController {
         this.participantRepository=participantRepository;
     }
 
-    @PostMapping("/addGroup")
+    @PostMapping("/api/addGroup")
     @CrossOrigin(origins = "http://localhost:3000")
     public Grouping saveNewGrouping (@RequestParam String name, @RequestParam int[] participants){
-//        List<Participant> participants = participantRepository.findAll();
         Set<Participant> set = new HashSet();
-//        System.out.println("hej från saveNewGroup");
         for(int id:participants){
             Long lId= Long.valueOf(id);
             set.add(participantRepository.findById(lId).get());
         }
-
         return groupingRepository.save(new Grouping(name, set));
     }
 

@@ -9,7 +9,7 @@ class Layout extends Component {
 
 
     return (
-      <div className="box" style={boxStyle}>
+      <div className="box">
         {this.props.participants.map((rowdata, i) => (
           <div key={i}>
           <Table participants={rowdata} />

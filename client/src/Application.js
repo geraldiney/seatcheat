@@ -5,6 +5,7 @@ import ParticipantList from "./participant/ParticipantList";
 import RenderButton from "./seatingRender/RenderButton";
 import SeatingRender from "./seatingRender/SeatingRender";
 import ReturnButton from "./seatingRender/ReturnButton";
+import SaveGroup from "./seatingRender/SaveGroup";
 
 class Application extends Component {
   constructor() {
@@ -23,9 +24,8 @@ class Application extends Component {
     this.fetchParticipant = this.fetchParticipant.bind(this);
     this.addLayout = this.addLayout.bind(this);
     this.showGroupOptions = this.showGroupOptions.bind(this);
-    this.fetchScrambledParticipantGroup = this.fetchScrambledParticipantGroup.bind(
-      this
-    );
+    this.fetchScrambledParticipantGroup = this.fetchScrambledParticipantGroup.bind(this);
+    this.addGroup = this.addGroup.bind(this);
   }
 
   componentDidMount() {
@@ -40,6 +40,14 @@ class Application extends Component {
 
   addParticipant(formData) {
     this.postData("http://localhost:8080/", formData).then(data => {
+      this.setState(prevState => ({
+        participants: [...prevState.participants, data]
+      }));
+    });
+  }
+
+  addGroup(formData){
+    this.postData("http://localhost:8080/api/addGroup", formData).then(data => {
       this.setState(prevState => ({
         participants: [...prevState.participants, data]
       }));
@@ -108,6 +116,7 @@ class Application extends Component {
         </div>
         <div className="rowButton">
           <ReturnButton showGroupOptions={this.showGroupOptions} />
+          <SaveGroup participants={this.state.participants} addGroup={this.addGroup} />
         </div>
       </div>
     );

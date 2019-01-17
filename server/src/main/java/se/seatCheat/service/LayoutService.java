@@ -136,7 +136,7 @@ public class LayoutService {
         }
         return participantList;
     }
-    
+
     public List<Participant> shuffleParticipants(List<Participant> participants) {
         Collections.shuffle(participants);
         return participants;
