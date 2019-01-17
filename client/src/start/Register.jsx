@@ -8,7 +8,8 @@ class Register extends Component {
       email: "",
       password: "",
       name: "",
-      user: ""
+      response: "",
+      
     };
     this.registerNewUser = this.registerNewUser.bind(this);
     this.clickHandler = this.clickHandler.bind(this);
@@ -24,7 +25,7 @@ class Register extends Component {
       body: newUser
     })
       .then(response => response.json())
-      .then(data => this.setState({ user: data }));
+      .then(data => this.setState({ response: data.message }));
   }
 
   changeHandler(event, type) {
@@ -69,6 +70,7 @@ class Register extends Component {
         <button className="btn" onClick={this.clickHandler}>
           Registrera
         </button>
+        <p className="response">{this.state.response}</p> 
       </div>
     );
   }

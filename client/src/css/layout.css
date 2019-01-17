@@ -96,6 +96,10 @@ input {
   font-family: "Roboto", sans-serif;
   font-weight: 900;
   text-align: center;
+  
+}
+input:focus {
+  outline:0;
 }
 
 .seating-info-box {

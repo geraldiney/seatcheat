@@ -79,14 +79,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/**/*.css",
                         "/**/*.js").permitAll()
                 .antMatchers("/api/auth/**").permitAll()
-                .antMatchers("/api/**").permitAll()
+//                .antMatchers("/api/**").permitAll()
                 .antMatchers("/api/user/checkUsernameAvailability", "/api/user/checkEmailAvailability").permitAll()
                 //.antMatchers(HttpMethod.GET, "/api/polls/**", "/api/users/**").permitAll()
                 .antMatchers("/h2-console/**").permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
-                .headers().frameOptions().sameOrigin();
+                //testar inloggning
+                .formLogin().loginPage("/")
+                .loginProcessingUrl("api/auth/signin")
+                .defaultSuccessUrl("/application",true)
+                .failureUrl("/index.html?error=true");
+                //testar inloggning
+//                .and()
+//                .headers().frameOptions().sameOrigin();
 
 
         // Add our custom JWT security filter
