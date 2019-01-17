@@ -10,15 +10,6 @@ class SaveGroup extends Component {
     };
     this.textHandler = this.textHandler.bind(this);
     this.clickHandler = this.clickHandler.bind(this);
-    this.setMessage = this.setMessage.bind(this);
-  }
-
-  setMessage() {
-    this.state.success
-      ? this.setState({
-          message: "Din grupp är sparad."
-        })
-      : this.setState({ message: "Något gick fel, försök igen" });
   }
 
   clickHandler(event) {
@@ -30,8 +21,9 @@ class SaveGroup extends Component {
     });
     this.props.addGroup(formData);
     this.setState({ newGroupName: ""});
-    this.setState({success: true});
-    this.setMessage();
+    this.setState({
+      message: "Din grupp är sparad."
+    })
   }
 
   textHandler(event) {
