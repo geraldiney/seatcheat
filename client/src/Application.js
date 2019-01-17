@@ -17,7 +17,8 @@ class Application extends Component {
       numberOfRows: "",
       seatsPerRow: "",
       currentLayoutId: "",
-      currentGroup: "4"
+      currentGroup: "4",
+      toggle: false,
     };
     this.getData = this.getData.bind(this);
     this.postData = this.postData.bind(this);
@@ -53,7 +54,8 @@ class Application extends Component {
     // });
     this.postData("http://localhost:8080/api/get-group", formData).then(data=>
       this.setState({participants: data})
-    );
+    )
+    .then(this.setState({toggle: true}));
   }
 
   addParticipant(formData) {
@@ -118,7 +120,7 @@ class Application extends Component {
               addParticipant={this.addParticipant}
               fetchGroup={this.fetchGroup}
             />
-            <ParticipantList participants={this.state.participants} />
+           { this.state.toggle ? <ParticipantList participants={this.state.participants} />:""}
           </div>
           <div className="col-lg-4 col-sm-12 stretch3">
             <RenderButton showGroupOptions={this.showGroupOptions} />
