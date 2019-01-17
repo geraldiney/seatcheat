@@ -42,7 +42,6 @@ public class LayoutService {
         if (rowSeating) {
 
             participants = sortRowseating(participants);
-            System.out.println("hej från rowseating"+participants);
             //pI = participant index
             for (int row = 0, pI = 0; row < numberOfRows; row++) {
                 for (int seat = 0; seat < seatsPerRow; seat++, pI++) {
@@ -56,9 +55,7 @@ public class LayoutService {
 
         //seating based on groups, filling up "groups" in turn
 
-
         participants = sortRowseating(participants);
-        System.out.println("hej från group seating "+participants);
 
         for (int seat=0, pI =0; seat<seatsPerRow; seat++){
             for (int row = 0; row < numberOfRows; row ++, pI++){

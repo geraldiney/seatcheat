@@ -18,7 +18,7 @@ class Application extends Component {
       seatsPerRow: "",
       currentLayoutId: "",
       currentGroup: "4",
-      toggle: false,
+      toggleListParticipants: false,
     };
     this.getData = this.getData.bind(this);
     this.postData = this.postData.bind(this);
@@ -50,7 +50,7 @@ class Application extends Component {
     this.postData("http://localhost:8080/api/get-group", formData).then(data=>
       this.setState({participants: data})
     )
-    .then(this.setState({toggle: true}));
+    .then(this.setState({toggleListParticipants: true}));
   }
 
   addParticipant(formData) {
@@ -58,7 +58,7 @@ class Application extends Component {
       this.setState(prevState => ({
         participants: [...prevState.participants, data]
       }));
-    }).then(this.setState({toggle: true}));
+    }).then(this.setState({toggleListParticipants: true}));
   }
 
   addGroup(formData){
@@ -115,7 +115,7 @@ class Application extends Component {
               addParticipant={this.addParticipant}
               fetchGroup={this.fetchGroup}
             />
-           { this.state.toggle ? <ParticipantList participants={this.state.participants} />:""}
+           { this.state.toggleListParticipants ? <ParticipantList participants={this.state.participants} />:""}
           </div>
           <div className="col-lg-4 col-sm-12 stretch3">
             <RenderButton showGroupOptions={this.showGroupOptions} />
