@@ -30,7 +30,6 @@ public class ParticipantController {
     @CrossOrigin(origins = "http://localhost:3000")
     public Participant saveNewParticipant (@RequestParam String name, @RequestParam String role){
         ParticipantRole participantRole = ParticipantRole.valueOf(role);
-        System.out.println(participantRole);
         return participantRepository.save(new Participant(name, participantRole));
 
     }

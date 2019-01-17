@@ -3,22 +3,20 @@ import Table from "./Table";
 import "../css/layout.css";
 
 class Layout extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
 
 
 
     return (
-        <div className="box">
-          {this.props.participants.map((rowdata, i) => (
-            <Table participants={rowdata} />
-          ))}
-
-        </div>
-
+      <div className="box" style={boxStyle}>
+        {this.props.participants.map((rowdata, i) => (
+          <div key={i}>
+          <Table participants={rowdata} />
+          </div>
+        ))}
+        
+      </div>
     );
   }
 }
