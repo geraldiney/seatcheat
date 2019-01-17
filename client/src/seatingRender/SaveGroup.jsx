@@ -16,7 +16,7 @@ class SaveGroup extends Component {
     event.preventDefault();
     let formData = new FormData();
     formData.append("name", this.state.newGroupName);
-    this.props.participants.forEach((item)=>{
+    this.props.participants.forEach((item) => {
       formData.append("participants", item.id);
     });
     this.props.addGroup(formData);
@@ -33,20 +33,29 @@ class SaveGroup extends Component {
   render() {
     return (
       <div className="SaveGroup">
-        <h6 className="card-title">Spara grupp</h6>
+        <h6 className="card-title">Spara grupp?</h6>
         <form>
-          <input
+          <input 
+            className ="input-save-group"
             type="textarea"
             placeholder="Ange gruppnamn"
             value={this.state.newGroupName}
             onChange={this.textHandler}
           />
-          <p className="response">{this.state.message}</p>
-          <button className="btn" onClick={this.clickHandler}>Spara grupp</button>
+          <div className="layout">
+            {/* KNAPP TILL HUVUDMENY */}
+            <button className="btn" onClick={this.props.showGroupOptions}> Till huvudmeny</button>
+
+            {/* KNAPP FÖR ATT SPARA GRUPP */}
+            <button className="btn" onClick={this.clickHandler}>Spara grupp</button> 
+             <p className="response">{this.state.message}</p>
+
+          </div>
+
         </form>
         
       </div>
-    
+
     );
   }
 }
