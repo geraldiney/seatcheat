@@ -4,10 +4,21 @@ import React, { Component } from "react";
 class SaveGroup extends Component {
   constructor(props) {
     super(props);
-    this.state = {newGroupName: ""
+    this.state = {newGroupName: "",
+    success: false,
+    message: ""
     };
     this.textHandler = this.textHandler.bind(this);
     this.clickHandler = this.clickHandler.bind(this);
+    this.setMessage = this.setMessage.bind(this);
+  }
+
+  setMessage() {
+    this.state.success
+      ? this.setState({
+          message: "Din grupp är sparad."
+        })
+      : this.setState({ message: "Något gick fel, försök igen" });
   }
 
   clickHandler(event) {
@@ -19,8 +30,8 @@ class SaveGroup extends Component {
     });
     this.props.addGroup(formData);
     this.setState({ newGroupName: ""});
-    //verify group is saved
-
+    this.setState({success: true});
+    this.setMessage();
   }
 
   textHandler(event) {
@@ -38,8 +49,10 @@ class SaveGroup extends Component {
             value={this.state.newGroupName}
             onChange={this.textHandler}
           />
+          <p className="response">{this.state.message}</p>
           <button className="btn" onClick={this.clickHandler}>Spara grupp</button>
         </form>
+        
       </div>
     
     );

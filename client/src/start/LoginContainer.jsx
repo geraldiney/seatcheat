@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Register from "./Register";
 
 class LoginContainer extends Component {
   constructor(props) {
