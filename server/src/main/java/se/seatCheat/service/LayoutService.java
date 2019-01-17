@@ -24,42 +24,18 @@ public class LayoutService {
         this.layoutRepository = layoutRepository;
     }
 
-<<<<<<< HEAD
     public List<List<Participant>> generateSeating(Long id) {
         Layout layout= layoutRepository.findById(id).get();
         int numberOfRows= layout.getNumberOfRows();
         int seatsPerRow = layout.getSeatsPerRow();
         boolean rowSeating = layout.isRowSeating();
-=======
-    public List<Participant> shuffleParticipants(List<Participant> participants) {
-        Collections.shuffle(participants);
-        return participants;
-    }
-
-
-    //för att förbereda för mer funktionalitet borde denna fkt ta in en List<Participants>
-
-    public List<List<Participant>> generateGroups(int numberOfRows, int seatsPerRow, boolean rowSeating) {
->>>>>>> 12da81111db2dcd29fc7bfa3dbc2b13c29e69548
 
         //denna ska tas in från frontent
         List<Participant> participants = participantRepository.findAll();
 
-<<<<<<< HEAD
         //genererar dubbelarray utifrån layout input
         Participant[][] groups = new Participant[numberOfRows][seatsPerRow];
 
-=======
-        if (numberOfRows <= 0 || participants.size() > numberOfRows * seatsPerRow) {
-            return null;
-        }
-
-        //generates double array from layout input
-        Participant[][] groups = new Participant[numberOfRows][seatsPerRow];
-
-        participants = shuffleParticipants(participants);
-
->>>>>>> 12da81111db2dcd29fc7bfa3dbc2b13c29e69548
         //seating based on rowseating, filling up rows from the "front"
         if (rowSeating) {
 
@@ -160,22 +136,9 @@ public class LayoutService {
         }
         return participantList;
     }
-
-<<<<<<< HEAD
+    
     public List<Participant> shuffleParticipants(List<Participant> participants) {
         Collections.shuffle(participants);
         return participants;
         }
-=======
-    public List<List<Participant>> generateGroupsBasedOnRole(int numberOfRows, int seatsPerRow, boolean rowSeating){
-
-        List<Participant> participants = participantRepository.findAll();
-
-        for (Participant participant: participants) {
-
-        }
-
-        return null;
-    }
->>>>>>> 12da81111db2dcd29fc7bfa3dbc2b13c29e69548
 }
