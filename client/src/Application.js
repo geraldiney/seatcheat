@@ -32,7 +32,7 @@ class Application extends Component {
 
   componentDidMount() {
     // this.fetchParticipant();
-    this.fetchGroup();
+    // this.fetchGroup();
   }
 
   fetchParticipant() {
@@ -41,12 +41,16 @@ class Application extends Component {
     );
   }
 
-  fetchGroup() {
+  fetchGroup(id) {
+
+    console.log("hej från fetchGroup(id) i application"+id)
     let formData = new FormData();
-    formData.append("id", this.state.currentGroup);
-    this.state.participants.forEach((item)=>{
-      formData.append("participants", item.id);
-    });
+    // formData.append("id", this.state.currentGroup);
+    formData.append("id", id);
+
+    // this.state.participants.forEach((item)=>{
+    //   formData.append("participants", item.id);
+    // });
     this.postData("http://localhost:8080/api/get-group", formData).then(data=>
       this.setState({participants: data})
     );
@@ -112,6 +116,7 @@ class Application extends Component {
             <ParticipantContainer
               participants={this.state.participants}
               addParticipant={this.addParticipant}
+              fetchGroup={this.fetchGroup}
             />
             <ParticipantList participants={this.state.participants} />
           </div>

@@ -18,6 +18,7 @@ class ParticipantContainer extends Component {
         <AddParticipants
           participants={this.props.participants}
           addParticipant={this.props.addParticipant}
+          fetchGroup={this.props.fetchGroup}
         />
       </div>
     );
