@@ -8,12 +8,22 @@ class Register extends Component {
       email: "",
       password: "",
       name: "",
-      response: "",
-      
+      success: false,
+      message: "",
+      messageSuccess: "Grattis, ",
+      messageError: "Något gick fel, försök igen"
     };
     this.registerNewUser = this.registerNewUser.bind(this);
     this.clickHandler = this.clickHandler.bind(this);
     this.changeHandler = this.changeHandler.bind(this);
+    this.setMessage = this.setMessage.bind(this);
+  }
+  setMessage() {
+    this.state.success
+      ? this.setState({
+          message: "Grattis, " + this.state.name + " du är registrerad!"
+        })
+      : this.setState({ message: "Något gick fel, försök igen" });
   }
 
   registerNewUser(newUser) {
@@ -25,7 +35,8 @@ class Register extends Component {
       body: newUser
     })
       .then(response => response.json())
-      .then(data => this.setState({ response: data.message }));
+      .then(data => this.setState({ success: data.success }))
+      .then(this.setMessage());
   }
 
   changeHandler(event, type) {
@@ -47,7 +58,7 @@ class Register extends Component {
   render() {
     return (
       <div>
-         <div className="spacer" ></div>
+        <div className="spacer" />
         <h5>Registrera</h5>
         <input
           type="text"
@@ -70,7 +81,7 @@ class Register extends Component {
         <button className="btn" onClick={this.clickHandler}>
           Registrera
         </button>
-        <p className="response">{this.state.response}</p> 
+        <p className="response">{this.state.message}</p>
       </div>
     );
   }

@@ -151,3 +151,9 @@ body {
     display: none !important;
   }
 }
+
+.response{
+  font-family: "Roboto", sans-serif;
+  color: white;
+  font-weight: 900;
+}
