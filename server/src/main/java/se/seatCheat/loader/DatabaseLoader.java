@@ -44,18 +44,31 @@ public class DatabaseLoader implements CommandLineRunner {
 //        Grouping testGrupp = new Grouping("C# HT18");
 //        groupingRepository.save(testGrupp);
 
-        participantRepository.save(new Participant("TEST"));
 
         Participant p1 = new Participant("Nina", ParticipantRole.Frontend);
-        Participant p2 = new Participant("Lina", ParticipantRole.Frontend);
-        Participant p3 = new Participant("Louise", ParticipantRole.Frontend);
-        Participant p4 = new Participant("Patrik", ParticipantRole.Backend);
-        Participant p5 = new Participant("Geraldine", ParticipantRole.Backend);
-        Participant p6 = new Participant("William", ParticipantRole.Backend);
-        Participant p7 = new Participant("Daniela", ParticipantRole.Frontend);
-        Participant p8 = new Participant("Therese", ParticipantRole.Backend);
+        Participant p2 = new Participant("Lina", ParticipantRole.Backend);
+        Participant p3 = new Participant("Louise", ParticipantRole.Tester);
+        Participant p4 = new Participant("Patrik", ParticipantRole.ProductOwner);
+        Participant p5 = new Participant("Geraldine", ParticipantRole.UX);
+        Participant p6 = new Participant("William", ParticipantRole.Frontend);
+        Participant p7 = new Participant("Daniela", ParticipantRole.Backend);
+        Participant p8 = new Participant("Therese", ParticipantRole.Tester);
+        Participant p9 = new Participant("Björn", ParticipantRole.ProductOwner);
+        Participant p10 = new Participant("Hamid", ParticipantRole.UX);
+        Participant p11 = new Participant("Albin", ParticipantRole.Frontend);
+        Participant p12 = new Participant("Henrik", ParticipantRole.Backend);
+        Participant p13 = new Participant("Jonas", ParticipantRole.Tester);
+        Participant p14 = new Participant("Rikard", ParticipantRole.ProductOwner);
+        Participant p15 = new Participant("Vincent", ParticipantRole.UX);
+        Participant p16 = new Participant("Kherota", ParticipantRole.Frontend);
+        Participant p17 = new Participant("Welid", ParticipantRole.Backend);
+        Participant p18 = new Participant("Viktor", ParticipantRole.Tester);
+        Participant p19 = new Participant("Te Hung", ParticipantRole.ProductOwner);
+        Participant p20 = new Participant("Johan", ParticipantRole.UX);
 
-        groupingRepository.save(new Grouping("Java HT18", new HashSet<Participant>(){{
+
+
+        groupingRepository.save(new Grouping("JHT18", new HashSet<Participant>(){{
                 add(p1);
                 add(p2);
                 add(p3);
@@ -64,6 +77,18 @@ public class DatabaseLoader implements CommandLineRunner {
                 add(p6);
                 add(p7);
                 add(p8);
+                add(p9);
+                add(p10);
+                add(p11);
+                add(p12);
+                add(p13);
+                add(p14);
+                add(p15);
+                add(p16);
+                add(p17);
+                add(p18);
+                add(p19);
+                add(p20);
             }}));
 
 
