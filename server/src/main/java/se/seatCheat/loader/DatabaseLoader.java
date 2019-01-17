@@ -44,6 +44,7 @@ public class DatabaseLoader implements CommandLineRunner {
 //        Grouping testGrupp = new Grouping("C# HT18");
 //        groupingRepository.save(testGrupp);
 
+        participantRepository.save(new Participant("TEST"));
 
         Participant p1 = new Participant("Nina", ParticipantRole.Frontend);
         Participant p2 = new Participant("Lina", ParticipantRole.Frontend);

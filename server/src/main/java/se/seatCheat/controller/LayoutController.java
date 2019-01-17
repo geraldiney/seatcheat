@@ -42,8 +42,8 @@ public class LayoutController {
 
     @PostMapping ("/api/generate-groups")
     @CrossOrigin(origins = "http://localhost:3000")
-    public List <List<Participant>> generateGroups(@RequestParam Long id){
-        return layoutService.generateSeating(id);
+    public List <List<Participant>> generateGroups(@RequestParam Long id, @RequestParam int[] participants){
+        return layoutService.generateSeating(id, participants);
     }
 
 }

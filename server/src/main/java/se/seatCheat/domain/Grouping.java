@@ -16,7 +16,6 @@ public class Grouping {
             inverseJoinColumns = @JoinColumn())
     private Set<Participant> participants;
 
-
     public Grouping(){}
 
     public Grouping(String name) {
@@ -44,6 +43,9 @@ public class Grouping {
         participants.add(participant);
     }
 
+    public Set<Participant> getParticipants (){
+        return participants;
+    }
 
     @Override
     public String toString() {

@@ -16,7 +16,8 @@ class Application extends Component {
       scrambledParticipantGroup: [],
       numberOfRows: "",
       seatsPerRow: "",
-      currentLayoutId: ""
+      currentLayoutId: "",
+      currentGroup: "4"
     };
     this.getData = this.getData.bind(this);
     this.postData = this.postData.bind(this);
@@ -26,15 +27,28 @@ class Application extends Component {
     this.showGroupOptions = this.showGroupOptions.bind(this);
     this.fetchScrambledParticipantGroup = this.fetchScrambledParticipantGroup.bind(this);
     this.addGroup = this.addGroup.bind(this);
+    this.fetchGroup = this.fetchGroup.bind(this);
   }
 
   componentDidMount() {
-    this.fetchParticipant();
+    // this.fetchParticipant();
+    this.fetchGroup();
   }
 
   fetchParticipant() {
     this.getData("http://localhost:8080/").then(data =>
       this.setState({ participants: data })
+    );
+  }
+
+  fetchGroup() {
+    let formData = new FormData();
+    formData.append("id", this.state.currentGroup);
+    this.state.participants.forEach((item)=>{
+      formData.append("participants", item.id);
+    });
+    this.postData("http://localhost:8080/api/get-group", formData).then(data=>
+      this.setState({participants: data})
     );
   }
 
@@ -63,6 +77,9 @@ class Application extends Component {
   fetchScrambledParticipantGroup() {
     let formData = new FormData();
     formData.append("id", this.state.currentLayoutId);
+    this.state.participants.forEach((item)=>{
+      formData.append("participants", item.id);
+    });
     return this.postData("http://localhost:8080/api/generate-groups", formData);
   }
 
