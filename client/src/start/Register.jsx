@@ -9,22 +9,21 @@ class Register extends Component {
       password: "",
       name: "",
       success: false,
-      message: "",
-      messageSuccess: "Grattis, ",
-      messageError: "Något gick fel, försök igen"
+      message: ""
+      
     };
     this.registerNewUser = this.registerNewUser.bind(this);
     this.clickHandler = this.clickHandler.bind(this);
     this.changeHandler = this.changeHandler.bind(this);
-    this.setMessage = this.setMessage.bind(this);
+    // this.setMessage = this.setMessage.bind(this);
   }
-  setMessage() {
-    this.state.success
-      ? this.setState({
-          message: "Grattis, " + this.state.name + " du är registrerad!"
-        })
-      : this.setState({ message: "Något gick fel, försök igen" });
-  }
+  // setMessage() {
+  //   this.state.success
+  //     ? this.setState({
+  //         message: "Grattis, " + this.state.name + " du är registrerad!"
+  //       })
+  //     : this.setState({ message: "Något gick fel, försök igen" });
+  // }
 
   registerNewUser(newUser) {
     fetch(url + "/auth/signup", {
@@ -35,8 +34,15 @@ class Register extends Component {
       body: newUser
     })
       .then(response => response.json())
-      .then(data => this.setState({ success: data.success }))
-      .then(this.setMessage());
+      .then(data => {
+        if (data.success) {
+          this.setState({
+            message: "Grattis, " + this.state.name + " du är registrerad!"
+          });
+        } else {
+          this.setState({ message: "Något gick fel, försök igen" });
+        }
+      });
   }
 
   changeHandler(event, type) {
