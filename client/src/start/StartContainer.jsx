@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import LoginContainer from "./LoginContainer";
 import Register from "./Register";
-
-
+import LoggaMini from "../img/LoggaMini.png";
 
 class StartContainer extends Component {
   constructor(props) {
@@ -12,16 +11,28 @@ class StartContainer extends Component {
   render() {
     return (
       <div>
-        <div className="row">
+        <div className="row relativeContainer">
           <div className="col-lg-4 col-sm-12 stretch1">
-            <div className="test"></div>
+            <div className="spacer" />
+            <h5>SeatCheat</h5>
+            <img className="logga" src={LoggaMini} />
+            {/* <div className="loggatext" /> */}
+            {/* <div className="loggatext2" /> */}
+            <div className="citat-mobil show-xs">
+              <h2>"Skapa bordsplacering enkelt med SeatCheat!"</h2>
+              <div className="arrow" />
+            </div>
           </div>
           <div className="col-lg-4 col-sm-12 stretch2">
-            <Register />
-          </div>
-          <div className="col-lg-4 col-sm-12 stretch3">
             <LoginContainer />
           </div>
+          <div className="col-lg-4 col-sm-12 stretch3">
+            <Register />
+          </div>
+        </div>
+
+        <div className="citat hide-xs">
+          <h2>"Skapa bordsplacering enkelt med SeatCheat!"</h2>
         </div>
       </div>
     );

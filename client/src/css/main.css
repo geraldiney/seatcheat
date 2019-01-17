@@ -14,7 +14,7 @@ ul {
 
 } */
 
-.scrollList{
+.scrollList {
   font-family: "Roboto", sans-serif;
   color: white;
   font-weight: 900;
@@ -51,6 +51,11 @@ h1 {
      -moz-background-clip: text;
           background-clip: text; */
 }
+h2{
+  font-family: 'Work Sans', sans-serif;
+   color: white;
+   font-size: 3rem;
+}
 
 body {
   background-color: #c5c5c5;
@@ -80,4 +85,69 @@ body {
 /* Handle on hover */
 .scrollList::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+.spacer {
+  width: 80px;
+  height: 30%;
+  background-color: transparent;
+}
+
+.logga{
+  zoom: 35%;
+  margin-bottom: 3%;
+}
+
+.loggaText {
+  width: 80%;
+  margin: auto;
+  border-bottom: solid 5px white;
+}
+
+.loggaText2 {
+  width: 80%;
+  margin: 2% auto;
+  border-bottom: dotted 5px white;
+}
+
+.relativeContainer {
+  position: relative;
+  
+}
+
+.citat {
+  position: absolute;
+  top: 20px;
+  width: 80%;
+}
+
+.citat-mobil h2{
+  font-family: 'Work Sans', sans-serif;
+  color: white;
+  font-size: 2rem;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+.arrow{
+    border: solid white;
+    height: 20px;
+    width: 20px;
+    border-width: 0 4px 4px 0;
+    display: inline-block;
+    padding: 10px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+   
+}
+
+@media (min-width: 767px) {
+  .show-xs {
+    display: none !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .hide-xs {
+    display: none !important;
+  }
 }
