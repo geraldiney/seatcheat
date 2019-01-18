@@ -7,7 +7,7 @@ class ParticipantList extends Component {
       <div className="scrollList ">
         {/* <h6 className="">Namn: </h6> */}
         <ul className="list-group list-group-flush">
-          {this.props.participants.map(participant => (
+          {this.props.participants.reverse().map(participant => (
             <div key={participant.id}>
               <li>{participant.name}{(participant.participantRole==="NA"||participant.participantRole===null) ? "":", "+participant.participantRole}
               </li>

@@ -33,7 +33,7 @@ class SeatingRender extends Component {
   render() {
     
     return <div>
-     <Layout participants={this.state.scrambledGroup} seatsPerRow={this.props.seatsPerRow} currentUser={this.props.currentUser} />;
+     <Layout participants={this.state.scrambledGroup} seatsPerRow={this.props.seatsPerRow} currentUser={this.props.currentUser} />
      <div >
             <SaveGroup participants={this.props.participants} 
                         addGroup={this.props.addGroup} 
