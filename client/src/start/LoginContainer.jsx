@@ -25,7 +25,7 @@ class LoginContainer extends Component {
       .then(response => response.json())
       .then(data => localStorage.setItem("accessToken", data.accessToken))
       // .then(data => this.setState({ response: data.message }));
-    // .then(window.location.replace("/application"));
+    .then(window.location.replace("/application"));
   }
 
   clickHandler(event) {

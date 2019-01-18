@@ -18,6 +18,7 @@ class Application extends Component {
       currentLayoutId: "",
       currentGroup: "4",
       toggleListParticipants: false,
+      currentUser: "Andreas"
     };
     this.getData = this.getData.bind(this);
     this.postData = this.postData.bind(this);
@@ -131,6 +132,7 @@ class Application extends Component {
               seatsPerRow={this.state.seatsPerRow}
               participants={this.state.participants}
               fetch={this.fetchScrambledParticipantGroup}
+              currentUser={this.state.currentUser}
             />
           </div>
           <div className="rowButton">

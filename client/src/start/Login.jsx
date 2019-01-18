@@ -24,6 +24,7 @@ class Login extends Component {
         })
           .then(response => response.json())
         //   .then(data => this.setState({ user: data }));
+        
       }
     
       changeHandler(event, type) {

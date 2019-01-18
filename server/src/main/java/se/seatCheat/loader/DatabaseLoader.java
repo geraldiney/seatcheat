@@ -36,7 +36,7 @@ public class DatabaseLoader implements CommandLineRunner {
         System.out.println("Loading DBLoader...");
 
         roleRepository.save(new Role("ROLE_USER"));
-        userRepository.save(new User("Andreas", "password", "andreas@academy" )
+        userRepository.save(new User("Andreas", "andreas@academy.se", "123456" )
                 .addRole(roleRepository.findByName("ROLE_USER").get()));
 
         //participantRepository.save(new Participant("Gerry", ParticipantRole.Backend));
@@ -49,7 +49,7 @@ public class DatabaseLoader implements CommandLineRunner {
         Participant p2 = new Participant("Lina", ParticipantRole.Backend);
         Participant p3 = new Participant("Louise", ParticipantRole.Tester);
         Participant p4 = new Participant("Patrik", ParticipantRole.ProductOwner);
-        Participant p5 = new Participant("Geraldine", ParticipantRole.UX);
+        Participant p5 = new Participant("Gerry", ParticipantRole.UX);
         Participant p6 = new Participant("William", ParticipantRole.Frontend);
         Participant p7 = new Participant("Daniela", ParticipantRole.Backend);
         Participant p8 = new Participant("Therese", ParticipantRole.Tester);
@@ -63,7 +63,7 @@ public class DatabaseLoader implements CommandLineRunner {
         Participant p16 = new Participant("Kherota", ParticipantRole.Frontend);
         Participant p17 = new Participant("Welid", ParticipantRole.Backend);
         Participant p18 = new Participant("Viktor", ParticipantRole.Tester);
-        Participant p19 = new Participant("Te Hung", ParticipantRole.ProductOwner);
+        Participant p19 = new Participant("TT", ParticipantRole.ProductOwner);
         Participant p20 = new Participant("Johan", ParticipantRole.UX);
 
 

@@ -8,7 +8,7 @@ class Layout extends Component {
       <div>
         <div className="teacher-lg" />
         <div>
-          <p className="response">Lärare</p>
+          <p className="response">{this.props.currentUser}</p>
         </div>
         <div className="teacher-user" />
 
