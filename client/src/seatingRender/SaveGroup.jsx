@@ -11,6 +11,7 @@ class SaveGroup extends Component {
     };
     this.textHandler = this.textHandler.bind(this);
     this.clickHandler = this.clickHandler.bind(this);
+    this.clickHandler2=this.clickHandler2.bind(this)
   }
 
   clickHandler(event) {
@@ -27,6 +28,12 @@ class SaveGroup extends Component {
     })
   }
 
+  clickHandler2(event) {
+    event.preventDefault();
+    this.props.fetch();
+
+  }
+
   textHandler(event) {
     this.setState({ newGroupName: event.target.value });
   }
@@ -39,7 +46,7 @@ class SaveGroup extends Component {
           <input
             className="input-save-group"
             type="textarea"
-            placeholder="Ange gruppnamn"
+            placeholder="Namn"
             value={this.state.newGroupName}
             onChange={this.textHandler}
           />
@@ -47,12 +54,15 @@ class SaveGroup extends Component {
             <div className="layout-box">
               <button className="btn" onClick={this.props.showGroupOptions}> Till huvudmeny</button>
             </div>
+            
             <div className="layout-box">
               <button className="btn" onClick={this.clickHandler}>Spara grupp</button>
               <p className="response">{this.state.message}</p>
 
             </div>
-
+            <div className="layout-box">
+              <button className="btn" onClick={this.clickHandler2}> Placera om</button>
+            </div>
 
           </div>
 

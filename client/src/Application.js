@@ -18,7 +18,8 @@ class Application extends Component {
       currentLayoutId: "",
       currentGroup: "4",
       toggleListParticipants: false,
-      currentUser: "Andreas"
+      currentUser: "Andreas",
+      scrambledGroup: ""
     };
     this.getData = this.getData.bind(this);
     this.postData = this.postData.bind(this);
@@ -43,8 +44,6 @@ class Application extends Component {
   }
 
   fetchGroup(id) {
-
-    console.log("hej från fetchGroup(id) i application"+id)
     let formData = new FormData();
     formData.append("id", id);
     this.postData("http://localhost:8080/api/get-group", formData).then(data=>
@@ -62,11 +61,7 @@ class Application extends Component {
   }
 
   addGroup(formData) {
-    this.postData("http://localhost:8080/api/addGroup", formData).then(data => {
-      this.setState(prevState => ({
-        participants: [...prevState.participants, data]
-      }));
-    });
+    this.postData("http://localhost:8080/api/addGroup", formData);
   }
 
   addLayout(formData) {
@@ -81,7 +76,10 @@ class Application extends Component {
     this.state.participants.forEach((item)=>{
       formData.append("participants", item.id);
     });
-    return this.postData("http://localhost:8080/api/generate-groups", formData);
+    return(this.postData("http://localhost:8080/api/generate-groups", formData))
+      // .then(data => 
+      //   this.setState({scrambledGroup: data})        
+      //   ));
   }
 
   getData(url) {
@@ -133,11 +131,17 @@ class Application extends Component {
               participants={this.state.participants}
               fetch={this.fetchScrambledParticipantGroup}
               currentUser={this.state.currentUser}
+              scrambledGroup={this.state.scrambledGroup}
+              addGroup={this.addGroup} 
+              showGroupOptions={this.showGroupOptions}
             />
           </div>
-          <div className="rowButton">
-            <SaveGroup participants={this.state.participants} addGroup={this.addGroup} showGroupOptions={this.showGroupOptions}/>
-          </div>
+          {/* <div className="rowButton">
+            <SaveGroup participants={this.state.participants} 
+                        addGroup={this.addGroup} 
+                        showGroupOptions={this.showGroupOptions}
+                        fetch={this.fetchScrambledParticipantGroup}/>
+          </div> */}
         </div>
       </div>
 
