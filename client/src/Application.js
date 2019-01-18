@@ -72,7 +72,10 @@ class Application extends Component {
 
   fetchScrambledParticipantGroup() {
     let formData = new FormData();
-    formData.append("id", this.state.currentLayoutId);
+    if(this.state.currentLayoutId==="")
+      formData.append("id", 3);
+    else 
+      formData.append("id", this.state.currentLayoutId);
     this.state.participants.forEach((item)=>{
       formData.append("participants", item.id);
     });

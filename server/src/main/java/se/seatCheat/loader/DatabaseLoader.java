@@ -3,14 +3,10 @@ package se.seatCheat.loader;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Component;
-import se.seatCheat.domain.Grouping;
-import se.seatCheat.domain.Participant;
-import se.seatCheat.domain.ParticipantRole;
+import se.seatCheat.domain.*;
 import se.seatCheat.repository.GroupingRepository;
 import se.seatCheat.repository.LayoutRepository;
 import se.seatCheat.repository.ParticipantRepository;
-import se.seatCheat.domain.Role;
-import se.seatCheat.domain.User;
 import se.seatCheat.repository.*;
 
 import javax.servlet.http.Part;
@@ -22,12 +18,14 @@ public class DatabaseLoader implements CommandLineRunner {
     private final GroupingRepository groupingRepository;
     private final RoleRepository roleRepository;
     private final UserRepository userRepository;
+    private final LayoutRepository layoutRepository;
 
-    public DatabaseLoader(ParticipantRepository participantRepository, GroupingRepository groupingRepository, RoleRepository roleRepository, UserRepository userRepository) {
+    public DatabaseLoader(LayoutRepository layoutRepository, ParticipantRepository participantRepository, GroupingRepository groupingRepository, RoleRepository roleRepository, UserRepository userRepository) {
         this.participantRepository = participantRepository;
         this.groupingRepository = groupingRepository;
         this.roleRepository = roleRepository;
         this.userRepository = userRepository;
+        this.layoutRepository=layoutRepository;
     }
 
     @Override
@@ -35,15 +33,12 @@ public class DatabaseLoader implements CommandLineRunner {
 
         System.out.println("Loading DBLoader...");
 
+
         roleRepository.save(new Role("ROLE_USER"));
         userRepository.save(new User("Andreas", "andreas@academy.se", "123456" )
                 .addRole(roleRepository.findByName("ROLE_USER").get()));
 
-        //participantRepository.save(new Participant("Gerry", ParticipantRole.Backend));
-
-//        Grouping testGrupp = new Grouping("C# HT18");
-//        groupingRepository.save(testGrupp);
-
+        layoutRepository.save(new Layout(4,6,true));
 
         Participant p1 = new Participant("Nina", ParticipantRole.Frontend);
         Participant p2 = new Participant("Lina", ParticipantRole.Backend);
@@ -91,13 +86,16 @@ public class DatabaseLoader implements CommandLineRunner {
                 add(p20);
             }}));
 
+//        Participant s1 = new Participant("Nina", ParticipantRole.Frontend);
+//        Participant s2 = new Participant("Lina", ParticipantRole.Backend);
+//        Participant s3 = new Participant("Louise", ParticipantRole.Tester);
+//
+//            groupingRepository.save(new Grouping("JVT18", new HashSet<Participant>(){{
+//            add(s1);
+//            add(s2);
+//            add(s3);
+//        }}));
 
-
-        //detta block skapar Katt men inte katter
-//        Grouping gA = new Grouping("Katter");
-//        participantRepository.save(new Participant("Katt", new HashSet<Grouping>() {{
-//                add(gA);
-//            }}));
 
         System.out.println("DBLoader loaded.");
 

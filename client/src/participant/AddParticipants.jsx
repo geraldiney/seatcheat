@@ -72,7 +72,7 @@ class AddParticipants extends Component {
           </select>
           <select name="savedGroup" onChange={this.optionHandler2}>
             <option value="">Välj sparad klass</option>
-            <option value="3">Java HT18</option>
+            <option value="4">Java HT18</option>
             <option value="">Java VT18</option>
           </select>
           <button className="btn" onClick={this.clickHandler}>
