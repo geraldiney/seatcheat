@@ -80,9 +80,7 @@ class Application extends Component {
       formData.append("participants", item.id);
     });
     return(this.postData("http://localhost:8080/api/generate-groups", formData))
-      // .then(data => 
-      //   this.setState({scrambledGroup: data})        
-      //   ));
+    
   }
 
   getData(url) {
